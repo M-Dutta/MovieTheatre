@@ -1,5 +1,5 @@
 
-public class Tickets {
+public class Tickets extends Utilities{
 	public int ticketId;
 	public int movieId;
 	public String date;
