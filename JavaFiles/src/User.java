@@ -14,7 +14,14 @@ public class User {
 	public int zip;
 	l= "'" //Use these to make life easier while formatting
 	L = "',"
-		
+	
+	public void register(String email,String paswd, String fname, String lname, String phone,String birthDate, 
+			    int emailPref, int status, String street, String city, String state, String zip) {
+	
+	s.executeUpdate("Insert into users values("+l+email+L+paswd+L+fname+L+lname+L+phone+L+birthDate+L+emailPref+
+			L+status+L+street+L+city+L+state+L+zip+l+")")  
+	}
+	
 	public void login(String emailAddr, String password) {
 		
 	}
