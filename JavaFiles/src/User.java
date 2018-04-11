@@ -1,5 +1,5 @@
 
-public class User {
+public class User extends Utilities {
 	public String email;
 	public String Password;
 	public String fName;
