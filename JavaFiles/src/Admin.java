@@ -1,9 +1,29 @@
 
-public class Admin {
+public class Admin Extends {
 	public int adminId;
 	public String designation;
 	public String adminEmail;
 	public String adminPassword;
+	
+	public Admin(int adminId, String designation, String adminEmail, String adminPassword) {
+		this.adminId = adminId;
+		this.designation =designation;
+		this.adminEmail = adminEmail;
+		this.adminPassword = adminPassword;
+	}
+	
+	public getAdmin(Statement s, id) {
+	try {
+		ResultSet r = s.executeQuery("SELECT * from admin WHERE admin_id="+l+adminId+l)
+		this.adminId = r.getInt(1);
+		this.designation = r.getString(2);
+		this.adminEmail = r.getString(3);
+		this.adminPassword = r.adminPassword(3);
+	}
+		
+	catch (SQLException e) {
+		System.out.println("savePayment "+ e);
+		}
 	
 	public void login(int id, String password) {
 		
@@ -13,7 +33,13 @@ public class Admin {
 		
 	}
 
-	public void changePassword() {
+	public void changePassword(Statement s, String passwd) {
+		try {
+		s.executeUpdate("Update Admin SET admin_password ="+l+passwd+l+" WHERE admin_id=" AdminId)								
+		}
+		catch (SQLException e) {
+		System.out.println("savePayment "+ e);
+	}
 		
 	}
 
