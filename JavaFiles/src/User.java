@@ -21,6 +21,10 @@ public class User {
 		s.executeUpdate("Insert into users values("+l+email+L+paswd+L+fname+L+lname+L+phone+L+birthDate+L+emailPref+
 				L+status+L+street+L+city+L+state+L+zip+l+")")  
 		}
+		
+		catch (SQLException e) {
+		System.out.println("savePayment "+ e);
+		}
 	}
 			
 	
@@ -63,7 +67,7 @@ public class User {
 	s.executeUpdate("insert into payment_info" + 
 			" values(" l+email_id+L+card_name +L+card_number +L+cardholder_name 
 			+L+exp_date+L+ street+L+city+L+state+L+zip+"');" );
-}
+	}
 	catch (SQLException e) {
 		System.out.println("savePayment "+ e);
 	}
