@@ -1,5 +1,5 @@
 
-public class Admin extends Employee {
+public class Admin {
 	public int adminId;
 	public String designation;
 	public String adminEmail;
