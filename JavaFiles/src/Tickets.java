@@ -5,11 +5,11 @@ public class Tickets extends Utilities{
 	public String date;
 	public String time;
 	
-	public void selectTicket() {
+	public void selectTicket(Statement s) {
 		
 	}
 	
-	public void changeAmount() {
+	public void changeAmount(Statement s) {
 		
 	}
 }
