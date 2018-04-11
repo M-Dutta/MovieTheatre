@@ -32,13 +32,14 @@ public class User extends Utilities {
 	        this.state = state;
 	        this.zip= =  zip;
 	}
+	public User() {}
 	
 	
 		
 	//Selecting user ---- Only use if user is registered
-	public getUser(Statement s, String email){
+	public void getUser(Statement s, String email){
 		try {
-		ResultSet r = s.executeQuery("SELECT * from users WHERE email="+l+email+l)
+		ResultSet r = s.executeQuery("SELECT * from users WHERE email="+l+email+l);
 		
 	        this.email= r.getString(1);
 	        this.paswd = r.getString(2);
@@ -64,7 +65,7 @@ public class User extends Utilities {
 	public void register(Statement s) {
 		try {
 		s.executeUpdate("Insert into users values("+l+email+L+paswd+L+fname+L+lname+L+phone+L+birthDate+L+emailPref+
-				L+status+L+street+L+city+L+state+L+zip+l+")")  
+				L+status+L+street+L+city+L+state+L+zip+l+")");
 		}
 		
 		catch (SQLException e) {
@@ -86,12 +87,12 @@ public class User extends Utilities {
 	if n = 0 {
 		s.executeUpdate("Update Users "+ 
 			"SET "+field+"="+l+info+l + 
-			"WHERE email="  +l+email+l)  
+			"WHERE email="  +l+email+l); 
 	}
 	else {
 		s.executeUpdate("Update Users "+ 
 			"SET "+field+"="+l+int(info)+l + 
-			"WHERE email="  +l+email+l)  
+			"WHERE email="  +l+email+l) ;
 	}
 	}
 	catch (SQLException e) {
@@ -101,7 +102,7 @@ public class User extends Utilities {
 	//user.ChangePassword(s, passwd)
 	public void changePassword(Statement s, String passwd) {
 		try {
-		s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+email+l)								
+		s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+email+l);								
 		}
 		catch (SQLException e) {
 		System.out.println("savePayment "+ e);
@@ -110,7 +111,7 @@ public class User extends Utilities {
 	
 	public void changeEmail(Statement s, String emailAddr) {
 		try {
-		s.executeUpdate("Update Users SET email="+l+emailAddr+l+" WHERE email="+l+email+l)
+		s.executeUpdate("Update Users SET email="+l+emailAddr+l+" WHERE email="+l+email+l);
 		}
 		catch (SQLException e) {
 		System.out.println("savePayment "+ e);
@@ -118,11 +119,12 @@ public class User extends Utilities {
 	}
 	
 	//should we be saving the security codes? === NOPE. Will fix that in the DB
-	public void savePayment(Statement s, String email,  int cardNum, String cardHolderName, String expDate) {
+	public void savePayment(Statement s, String card_name, String card_number,String cardholder_name, 
+			String exp_date, String street,String city,String state,String zip ) {
 	try {
 	s.executeUpdate("insert into payment_info" + 
-			" values(" l+email_id+L+card_name +L+card_number +L+cardholder_name 
-			+L+exp_date+L+ street+L+city+L+state+L+zip+"');" );
+			" values("+ l+email_id+L+card_name +L+card_number +L+cardholder_name 
+			+L+exp_date+L+ street+L+city+L+state+L+zip+"')" );
 	}
 	catch (SQLException e) {
 		System.out.println("savePayment "+ e);
@@ -130,11 +132,11 @@ public class User extends Utilities {
 	
 	} 
 	
-	public void viewPurchase(Statement s, String email) {
+	public void viewPurchase(Statement s) {
 		try {
 		ResultSet r = s.executeQuery("Select t.ticket_id, m.movie_name, t.movie_id,t.date, t.time "+
 					     "FROM ticket as t, registered_tickets as rt,movie as m "+
-					     "WHERE rt.user_email=" l+email+l)
+					     "WHERE rt.user_email=" l+email+l);
 		while (r.next()) {
 			System.out.print (r.getInt(1), r.getString(2),r.getDate(3), r.getTime(4) );
 			}
