@@ -21,7 +21,8 @@ protected static ArrayList <String>companynames= new ArrayList<String>();
 /**
  * Loader txt file information 
  * Paste the location for flight_data.text  <- the file that landon updated  
- */
+ 
 public static String fileLoc ="'C:/Users/Mishuk/Documents/SQL Printout/Flights.txt'";	
 public static String Loader = "LOAD DATA LOCAL INFILE "+fileLoc
 +" into table Flights columns terminated by ' '";
+*/
