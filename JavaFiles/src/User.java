@@ -1,3 +1,7 @@
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class User extends Utilities {
 	public String email;
@@ -5,24 +9,25 @@ public class User extends Utilities {
 	public String fName;
 	public String lName;
 	public String phone;
-	public String birthDate;
+	public Date birthDate;
 	public int emailPref;
 	public int status;
 	public String street;
 	public String city;
 	public String state;
 	public int zip;
-	l= "'" //Use these to make life easier while formatting
-	L = "','"
+	
+	String l= "'"; //Use these to make life easier while formatting
+	String L = "','";
 	
 	// Create User 
 	public User( String email,String Password, String fName,
-	 String lName,String phone,String birthDate ,int emailPref, int status,
+	 String lName,String phone,Date birthDate ,int emailPref, int status,
 	 String street, String city, String state,int zip)	{
 		this.email= email;
 	        this.Password = Password;
-	        this.fname =  fName;
-		his.lname=  lname;
+	        this.fName =  fName;
+	        this.lName=  lName;
 	        this.phone = phone;
 	        this.birthDate = birthDate;
 		this.emailPref= emailPref;
@@ -30,7 +35,7 @@ public class User extends Utilities {
 	        this.street =  street;
 		this.city=  city;
 	        this.state = state;
-	        this.zip= =  zip;
+	        this.zip=   zip;
 	}
 	public User() {}
 	
@@ -42,21 +47,21 @@ public class User extends Utilities {
 		ResultSet r = s.executeQuery("SELECT * from users WHERE email="+l+email+l);
 		
 	        this.email= r.getString(1);
-	        this.paswd = r.getString(2);
-	        this.fname =  r.getString(3);
-		his.lname=  r.getString(4);
-	        this.phone = r.getInt(5);
+	        this.Password = r.getString(2);
+	        this.fName =  r.getString(3);
+	        this.lName=  r.getString(4);
+	        this.phone = r.getString(5);
 	        this.birthDate = r.getDate(6);
 		this.emailPref= r.getInt(7);
 	        this.status = r. getInt(8);
 	        this.street =  r.getString(9);
 		this.city=  r.getString(10);
 	        this.state = r.getString(11);
-	        this.zip= =  r.getInt(12);
+	        this.zip=   r.getInt(12);
 		}
 	
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("GetUser "+ e);
 		}
 		
 		
@@ -64,15 +69,15 @@ public class User extends Utilities {
 	//Create User then call User.register(s)
 	public void register(Statement s) {
 		try {
-		s.executeUpdate("Insert into users values("+l+email+L+paswd+L+fname+L+lname+L+phone+L+birthDate+L+emailPref+
+		s.executeUpdate("Insert into users values("+l+email+L+Password+L+fName+L+lName+L+phone+L+birthDate+L+emailPref+
 				L+status+L+street+L+city+L+state+L+zip+l+")");
 		}
 		
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("register "+ e);
 		}
 	}
-			
+	
 	
 	public void login(String emailAddr, String password) {
 		
@@ -84,19 +89,19 @@ public class User extends Utilities {
 	//User.changeInfo(s, field,info, n)
 	public void changeInfo(Statement s, String field, String info,int n ) {
 	try {
-	if n = 0 {
+	if (n == 0) {
 		s.executeUpdate("Update Users "+ 
 			"SET "+field+"="+l+info+l + 
 			"WHERE email="  +l+email+l); 
 	}
 	else {
 		s.executeUpdate("Update Users "+ 
-			"SET "+field+"="+l+int(info)+l + 
+			"SET "+field+"="+l+info+l + 
 			"WHERE email="  +l+email+l) ;
 	}
 	}
 	catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("Change INfo "+ e);
 	}
 	}
 	//user.ChangePassword(s, passwd)
@@ -119,16 +124,21 @@ public class User extends Utilities {
 	}
 	
 	//should we be saving the security codes? === NOPE. Will fix that in the DB
-	public void savePayment(Statement s, String card_name, String card_number,String cardholder_name, 
-			String exp_date, String street,String city,String state,String zip ) {
-	try {
+	public void savePayment(Statement s, CreditCardInfo c ) {
+		try {
 	s.executeUpdate("insert into payment_info" + 
-			" values("+ l+email_id+L+card_name +L+card_number +L+cardholder_name 
-			+L+exp_date+L+ street+L+city+L+state+L+zip+"')" );
+			" values("+ l+c.email_id+L+c.cardName +L+c.cardNumber +L+c.cardHolderName+
+			L+c.expDate+L+c.street+L+c.city+L+c.state+L+c.zip+"')" );
 	}
 	catch (SQLException e) {
 		System.out.println("savePayment "+ e);
+		}
 	}
+	//Get PAyment Method
+	public CreditCardInfo getPayment(Statement s, String cardName, int cardNumber) {	
+		CreditCardInfo c= new CreditCardInfo();
+		c.getCreditCardInfo(s, this.email,  cardName,  cardNumber);
+		return c;
 	
 	} 
 	
@@ -136,9 +146,10 @@ public class User extends Utilities {
 		try {
 		ResultSet r = s.executeQuery("Select t.ticket_id, m.movie_name, t.movie_id,t.date, t.time "+
 					     "FROM ticket as t, registered_tickets as rt,movie as m "+
-					     "WHERE rt.user_email=" l+email+l);
+					     "WHERE rt.user_email="+l+email+l);
+		String h = " ";
 		while (r.next()) {
-			System.out.print (r.getInt(1), r.getString(2),r.getDate(3), r.getTime(4) );
+			System.out.print(r.getInt(1)+h+r.getString(2)+h+r.getDate(3)+h+ r.getTime(4) );
 			}
 		}
 		catch (SQLException e) {

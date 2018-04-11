@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class RegularEmployee {
 	
@@ -12,16 +14,18 @@ public class RegularEmployee {
 		
 	}
 	
-	public void changePassword(String emailAddr) {
-		
+	public void changePassword(Statement s) {
+		//NAN place Holder
 	}
 	
-	public void addUser(User registeredUser) {
-		
+	public void addUser(Statement s,User registeredUser) {
+		registeredUser.register(s);
 	}
 	
-	public void changeUserInfo(User registeredUser) {
-		
+	public void changeUserInfo(Statement s,String userEmail,String field,String info, int n) {
+		User u = new User();
+		u.getUser(s,userEmail);
+		u.changeInfo(s, field, info, n);
 	}
 	
 	public Tickets modifyTickets(Tickets ticket) {
