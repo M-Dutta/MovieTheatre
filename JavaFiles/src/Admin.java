@@ -28,7 +28,7 @@ public class Admin extends Utilities{
 	}
 		
 	catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("getAdmin "+ e);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class Admin extends Utilities{
 		s.executeUpdate("Update Admin SET admin_password ="+l+passwd+l+" WHERE admin_id="+ adminId);						
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("changePassword "+ e);
 	}
 		
 	}

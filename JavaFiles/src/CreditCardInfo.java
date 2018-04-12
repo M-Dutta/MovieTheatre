@@ -50,7 +50,7 @@ public class CreditCardInfo {
 			this.zip=r.getInt(9);
 		}
 		catch (SQLException e) {
-			System.out.println("savePayment "+ e);
+			System.out.println("getCreditCardInfo "+ e);
 		}
 			
 	}

@@ -41,23 +41,23 @@ public class Movie {
 	}
 	public void getMovie(Statement s, int movieID) {
 		try {
-		ResultSet r = s.executeQuery("SELECT * from movie WHERE movie_id="+l+movieID+l);
-		this.movieId =r.getInt(1);
-		this.runtime= r.getTime(2);
-		this.release=r.getDate(3);
-		this.desc=r.getString(4);
-		this.rating=r.getInt(5);
-		this.age=r.getInt(6);
-		this.genre=r.getString(7);
-		this.cast=r.getString(8);
-		this.director=r.getString(9);
-		this.producer=r.getString(10);
-		this.trailerVideo=r.getString(11);
-		this.trailerPicture=r.getString(12);
-		this.status=r.getInt(13);
+			ResultSet r = s.executeQuery("SELECT * from movie WHERE movie_id="+l+movieID+l);
+			this.movieId =r.getInt(1);
+			this.runtime= r.getTime(2);
+			this.release=r.getDate(3);
+			this.desc=r.getString(4);
+			this.rating=r.getInt(5);
+			this.age=r.getInt(6);
+			this.genre=r.getString(7);
+			this.cast=r.getString(8);
+			this.director=r.getString(9);
+			this.producer=r.getString(10);
+			this.trailerVideo=r.getString(11);
+			this.trailerPicture=r.getString(12);
+			this.status=r.getInt(13);
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+			System.out.println("getMovie "+ e);
 		}
 	
 		
@@ -101,7 +101,7 @@ public class Movie {
 			}
 			}
 			catch (SQLException e) {
-				System.out.println("Change INfo "+ e);
+				System.out.println("edit "+ e);
 			}
 		
 	}

@@ -48,7 +48,7 @@ public class Employee {
 			}
 		
 			catch (SQLException e) {
-			System.out.println("savePayment "+ e);
+			System.out.println("getEmployee "+ e);
 			}
 			
 			
@@ -80,7 +80,7 @@ public class Employee {
 		}
 		catch (SQLException e) 
 		{
-			System.out.println("savePayment "+ e);
+			System.out.println("changeInfo "+ e);
 		}
 	}
 		
@@ -89,7 +89,7 @@ public class Employee {
 		s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE id="+l+id+l);								
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("changePassword "+ e);
 	}
 	}		
 }

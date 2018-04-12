@@ -61,7 +61,7 @@ public class User extends Utilities {
 		}
 	
 		catch (SQLException e) {
-		System.out.println("GetUser "+ e);
+			System.out.println("GetUser "+ e);
 		}
 		
 		
@@ -74,7 +74,7 @@ public class User extends Utilities {
 		}
 		
 		catch (SQLException e) {
-		System.out.println("register "+ e);
+			System.out.println("register "+ e);
 		}
 	}
 	
@@ -101,25 +101,25 @@ public class User extends Utilities {
 	}
 	}
 	catch (SQLException e) {
-		System.out.println("Change INfo "+ e);
+		System.out.println("ChangeInfo "+ e);
 	}
 	}
 	//user.ChangePassword(s, passwd)
 	public void changePassword(Statement s, String passwd) {
 		try {
-		s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+email+l);								
+			s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+email+l);								
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+			System.out.println("changePassword "+ e);
 	}
 	}
 	
 	public void changeEmail(Statement s, String emailAddr) {
 		try {
-		s.executeUpdate("Update Users SET email="+l+emailAddr+l+" WHERE email="+l+email+l);
+			s.executeUpdate("Update Users SET email="+l+emailAddr+l+" WHERE email="+l+email+l);
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+			System.out.println("changeEmail "+ e);
 	}
 	}
 	
@@ -153,7 +153,7 @@ public class User extends Utilities {
 			}
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("viewPurchase "+ e);
 	}
 	}
 
