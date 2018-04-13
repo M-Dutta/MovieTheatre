@@ -85,9 +85,9 @@
         <jsp:setProperty name = "userBean" property = "firstName" />
         <jsp:setProperty name = "userBean" property = "lastName" />
         <jsp:setProperty name = "userBean" property = "email" />
+        <jsp:setProperty name = "userBean" property = "promos" />
         <jsp:setProperty name = "userBean" property = "password" />
         <jsp:setProperty name = "userBean" property = "passConfirm" />
-        <jsp:setProperty name = "userBean" property = "promos" />
         
         <div class="nav-placeholder">
           <ul class="nav">
