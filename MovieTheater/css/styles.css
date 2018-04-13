@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', serif;
+}
+
+.nav{
+    display: inline-block;
+    position: fixed;
+    overflow: hidden;
+    top:0;
+    padding-top:0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: right;
+    list-style: none;
+    padding: 10px 0 5px 0;
+    z-index: 1;
+}
+.nav > li {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    font-size: 12px;
+}
+
+.nav > li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav > li > a:hover{
+    color: #c1c1c1;
+}
+
+.nav > li > a > .navPic{
+    width: auto;
+    height: auto;
+    max-width: 20px;
+    max-width: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.nav > li > a > .navPic:hover{
+    opacity: 0.3;
+}
+
+.logo{
+    padding-left: 20px;
+    color: black;
+    float: left;
+    font-size: 18;
+    font-weight:bold;
+}
+.logo > a {
+    text-decoration: none;
+    color: black;
+}
+.banner{
+    width: 110%;
+    max-width: 110%;
+    display: block;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.banner > .bannerImage > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.bannerImage > .center {
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: black;
+}
+
+.parallax{
+    height: 1000px;
+    width: 100%;
+}
+
+.movies > .movieContainer > img  {
+    padding: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.movieContainer {
+    position: relative;
+    display: block;
+    width: 20%;
+    height: 22%;
+    padding: 20px 20px 20px 20px;
+}
+
+.row > .column {
+  padding: 9px 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 10%;
+}
+ .column > .buttonHolder{
+   text-align: center;
+   position: center;
+   top: 20px;
+ }
+
+ table {
+    display: table;
+    border-collapse: separate;
+    padding: 0 20px 20px 10px;
+    border-color: gray;
+}
+th, td{
+    padding: 15px 20px 15px 20px;
+}

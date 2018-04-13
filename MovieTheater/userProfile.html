@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tag -->
+    <meta charset="utf-8">
+
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- tab details -->
+    <link rel="icon" type="image/png" href="img/cinema.png">
+    <title>Theater</title>
+
+    <style>
+      body
+      {
+       background-color: black;
+       color: white;
+      }
+
+      div
+      {
+        margin: auto;
+        text-align: center;
+        width: 75%;
+        border: 10px;
+        border-color: white;
+        border-radius: 5px;
+      }
+
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <div class="logo">
+            <a href="index.html">Theater</a>
+        </div>
+
+        <li><a href="#Booking">Book Tickets</a></li>
+        <li>
+            <a href="#Cart">
+                <img class="navPic" alt="profile" src="img/cart.png">
+            </a>
+        </li>
+        <li>
+            <a href="#profile">
+                <img class="navPic" alt="profile" src="img/user.png">
+            </a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+
+    <div>
+    	<h1> User Profile </h4>
+      <br> <br>
+
+      <div>
+        <p> Name: Jake Applebee </p>
+        <p> Email: japplebee@gmail.com </p>
+        <p> Password: il0v3apples! </p>
+        <p> Payment Information: Card ending in 9675 </p>
+        <p> Billing Information: 145 Rosewater Ct, Fayetteville NC, 37583 </p>
+      </div>
+
+      <div>
+          <input type = "button" id = "updateInfo" value = "Update Information"> <br>
+          <input type = "button" id = "emailPreferences" value = "Email Preferences"> <br>
+          <input type = "button" id = "purchaseHistory" value = "Purchase History"> <br>
+          <input type = "button" id = "logout" value = "Logout"> <br>
+      </div>
+
+    </div>
+
+    <!--scripts-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

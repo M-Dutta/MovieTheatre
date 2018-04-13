@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tag -->
+    <meta charset="utf-8">
+
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- tab details -->
+    <link rel="icon" type="image/png" href="img/cinema.png">
+    <title>Theater</title>
+
+    <style>
+      body
+      {
+       background-color: black;
+       color: white;
+      }
+
+      div
+      {
+        margin: auto;
+        text-align: center;
+        width: 75%;
+        border: 10px;
+        border-color: white;
+        border-radius: 5px;
+      }
+
+      table
+      {
+        margin: auto;
+      }
+
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <div class="logo">
+            <a href="index.html">Theater</a>
+        </div>
+
+        <li><a href="#Booking">Book Tickets</a></li>
+        <li>
+            <a href="#Cart">
+                <img class="navPic" alt="profile" src="img/cart.png">
+            </a>
+        </li>
+        <li>
+            <a href="#profile">
+                <img class="navPic" alt="profile" src="img/user.png">
+            </a>
+        </li>
+    </ul>
+
+    <br>
+    <br>
+
+    <div>
+    	<h1> Checkout </h4>
+      <br> <br>
+
+      <table>
+        <tr>
+          <td>
+            <form>
+              Card Number:      <input type = "text" id = "cardNumber"> <br>
+              Expiration Date:  <input type = "text" id = "expirationDate"> <br>
+              CVV:              <input type = "text" id = "cvv"> <br>
+              Address 1:        <input type = "text" id = "address1"> <br>
+              Address 2:        <input type = "text" id = "address2"> <br>
+              Zip Code:         <input type = "text" id = "zipCode"> <br>
+              State:            <input type = "text" id = "state"> <br>
+              Country:          <input type = "text" id ="country"> <br>
+              Contact Number:   <input type = "text" id = "contactNumber"> <br>
+            </form>
+          </td>
+
+
+          <td>
+            <input type = "text" id = "promoCode" value = "Enter Promo Code"><br>
+            <p> Black Panther </p>
+            <p> 3/6/2018 7:45 PM </p>
+            <p> 2 Adult Tickets </p>
+          </td>
+        </tr>
+
+      </table>
+
+      <p> Total: $23.92 </p>
+      <input type = "button" id = "placeOrder" value = "Place Order">
+      <input type = "button" id = "cancel" value = "Cancel Order">
+
+    </div>
+
+    <!--scripts-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
