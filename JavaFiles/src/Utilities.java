@@ -1,3 +1,6 @@
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -15,6 +18,12 @@ public final static String Driver ="com.mysql.jdbc.Driver";
 public final static String connectionURL ="jdbc:mysql://localhost:8000/";
 
 
+public static Date DateConverter (String date) throws ParseException {
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+java.util.Date utilDate = formatter.parse(date);
+java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+return sqlDate;
+}
 /**
  * Loader txt file information 
  * Paste the location for flight_data.text  <- the file that landon updated  

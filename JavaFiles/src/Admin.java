@@ -28,7 +28,7 @@ public class Admin extends Utilities{
 	}
 		
 	catch (SQLException e) {
-		System.out.println("getAdmin "+ e);
+		System.out.println("savePayment "+ e);
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class Admin extends Utilities{
 		s.executeUpdate("Update Admin SET admin_password ="+l+passwd+l+" WHERE admin_id="+ adminId);						
 		}
 		catch (SQLException e) {
-		System.out.println("changePassword "+ e);
+		System.out.println("savePayment "+ e);
 	}
 		
 	}
@@ -110,16 +110,16 @@ public class Admin extends Utilities{
 		
 	}
 	
-	public void addMovie(Statement s,Movie movie){
+	public void addMovie(Statement s,Movie_info movie){
 		movie.add(s);
 	
 	}
 	
-	public void changeMovieInfo(Statement s, Movie m,String field, String info,int n ) {
+	public void changeMovieInfo(Statement s, Movie_info m,String field, String info,int n ) {
 		m.edit( s, field, info, n);
 	}
 	
-	public void removeMovie(Statement s,Movie movie) {
+	public void removeMovie(Statement s,Movie_info movie) {
 		movie.remove(s);
 	}
 	

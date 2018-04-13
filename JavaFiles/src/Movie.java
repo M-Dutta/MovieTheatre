@@ -5,72 +5,38 @@ import java.sql.Statement;
 import java.sql.Time;
 
 public class Movie {
-	public int movieId;
-	public String movieName;
-	public Time runtime;
-	public Date release;
-	public String desc;
-	public int rating;
-	public int age;
-	public String genre;
-	public String cast;
-	public String director;
-	public String producer;
-	public String trailerVideo;
-	public String trailerPicture;
-	public int status;
 	String l = "'";
 	String L = "','";
+	String movie_id;
+	String movie_name;
+	Time runtim;
+	Date releas;
 	
 	public Movie() {}
-	public Movie (int movieId,String movieName,Time runtime,Date release,String desc,int rating,
-			int age,String genre,String cast,String director,String producer,String trailerVideo,String trailerPicture, int status) {
-		this.movieId =movieId;
-		this.runtime= runtime;
-		this.release=release;
-		this.desc=desc;
-		this.rating=rating;
-		this.age=age;
-		this.genre=genre;
-		this.cast=cast;
-		this.director=director;
-		this.producer=producer;
-		this.trailerVideo=trailerVideo;
-		this.trailerPicture=trailerPicture;
-		this.status=status;
+	public Movie(String movie_id, String movie_name,Time runtim, Date releas) {
+		this.movie_id = movie_id;
+		this.movie_name = movie_name;
+		this.runtim = runtim;
+		this.releas = releas;
 	}
+	
 	public void getMovie(Statement s, int movieID) {
 		try {
-			ResultSet r = s.executeQuery("SELECT * from movie WHERE movie_id="+l+movieID+l);
-			this.movieId =r.getInt(1);
-			this.runtime= r.getTime(2);
-			this.release=r.getDate(3);
-			this.desc=r.getString(4);
-			this.rating=r.getInt(5);
-			this.age=r.getInt(6);
-			this.genre=r.getString(7);
-			this.cast=r.getString(8);
-			this.director=r.getString(9);
-			this.producer=r.getString(10);
-			this.trailerVideo=r.getString(11);
-			this.trailerPicture=r.getString(12);
-			this.status=r.getInt(13);
+			ResultSet r =s.executeQuery("SELECT * from movie WHERE movie_id="+l+movie_id+l+")");
+			r.next();
+			this.movie_id = r.getString(1);
+			this.movie_name = r.getString(2);
+			this.runtim = r.getTime(3);
+			this.releas = r.getDate(4);
+		} catch (SQLException e) {
+			System.out.println("getMovie "+e);
+			e.printStackTrace();
 		}
-		catch (SQLException e) {
-			System.out.println("getMovie "+ e);
-		}
-	
-		
-	}
-	
-	void browse(){
-		//tbi
 	}
 	
 	public void add(Statement s) {
 		try {
-		s.executeUpdate("INSERT into movie VALUES "+l+movieId+L+runtime+L+release+L+desc+L+rating+L+age+L+genre+L+
-				cast+L+director+producer+L+trailerVideo+L+trailerPicture+L+status+l+")"  );
+		s.executeUpdate("INSERT into movie VALUES "+l+movie_id+L+movie_name+L+runtim+L+releas+l+")"  );
 		}
 		catch (SQLException e) {
 			System.out.println("add "+ e);
@@ -80,7 +46,7 @@ public class Movie {
 	
 	public void remove(Statement s) {
 		try {
-			s.executeUpdate("DELETE from movie WHERE movie_id="+l+movieId+l );
+			s.executeUpdate("DELETE from movie WHERE movie_id="+l+movie_id+l );
 		} catch (SQLException e) {
 			System.out.println("remove "+ e);
 		}
@@ -92,17 +58,18 @@ public class Movie {
 			if (n == 0) {
 				s.executeUpdate("Update movie "+ 
 					"SET "+field+"="+l+info+l + 
-					"WHERE movie_id="  +l+movieId+l); 
+					"WHERE movie_id="  +l+movie_id+l); 
 			}
 			else {
 				s.executeUpdate("Update Users "+ 
 					"SET "+field+"="+l+ Integer.parseInt(info)+l + 
-					"WHERE movie_id="  +l+movieId+l) ;
+					"WHERE movie_id="  +l+movie_id+l) ;
 			}
 			}
 			catch (SQLException e) {
-				System.out.println("edit "+ e);
+				System.out.println("Change Info "+ e);
 			}
 		
 	}
 }
+

@@ -20,7 +20,7 @@ public class User extends Utilities {
 	String l= "'"; //Use these to make life easier while formatting
 	String L = "','";
 	
-	// Create User 
+	// Create user 
 	public User( String email,String Password, String fName,
 	 String lName,String phone,Date birthDate ,int emailPref, int status,
 	 String street, String city, String state,int zip)	{
@@ -44,13 +44,14 @@ public class User extends Utilities {
 	//Selecting user ---- Only use if user is registered
 	public void getUser(Statement s, String email){
 		try {
-		ResultSet r = s.executeQuery("SELECT * from users WHERE email="+l+email+l);
-		
+			
+		ResultSet r = s.executeQuery("SELECT * from user WHERE email="+l+email+l);
+			r.next();
 	        this.email= r.getString(1);
-	        this.Password = r.getString(2);
+	        this.phone = r.getString(2);
 	        this.fName =  r.getString(3);
 	        this.lName=  r.getString(4);
-	        this.phone = r.getString(5);
+	        this.Password = r.getString(5);
 	        this.birthDate = r.getDate(6);
 		this.emailPref= r.getInt(7);
 	        this.status = r. getInt(8);
@@ -61,65 +62,73 @@ public class User extends Utilities {
 		}
 	
 		catch (SQLException e) {
-			System.out.println("GetUser "+ e);
+		System.out.println("Getuser "+ e);
 		}
 		
 		
 	    }
-	//Create User then call User.register(s)
+	//Create user then call user.register(s)
 	public void register(Statement s) {
 		try {
-		s.executeUpdate("Insert into users values("+l+email+L+Password+L+fName+L+lName+L+phone+L+birthDate+L+emailPref+
+		s.executeUpdate("Insert into user values("+l+email+L+fName+L+lName+L+phone+L+Password+L+birthDate+L+emailPref+
 				L+status+L+street+L+city+L+state+L+zip+l+")");
 		}
 		
 		catch (SQLException e) {
-			System.out.println("register "+ e);
+		System.out.println("register "+ e);
 		}
 	}
 	
 	
-	public void login(String emailAddr, String password) {
+	public void login(Statement s, String  email, String password) {
+		User u = new User();
+		u.getUser( s,  email);
+		if (u.Password.equals(password)) {
+			System.out.println("Logged In");
+		}
+		else {
+			System.out.println("NOPE");
+		}
 		
 	}
 	
 	public void logout() {
 		
 	}
-	//User.changeInfo(s, field,info, n)
+	//user.changeInfo(s, field,info, n)
 	public void changeInfo(Statement s, String field, String info,int n ) {
 	try {
 	if (n == 0) {
-		s.executeUpdate("Update Users "+ 
+		s.executeUpdate("Update user "+ 
 			"SET "+field+"="+l+info+l + 
 			"WHERE email="  +l+email+l); 
 	}
 	else {
-		s.executeUpdate("Update Users "+ 
+		s.executeUpdate("Update user "+ 
 			"SET "+field+"="+l+info+l + 
 			"WHERE email="  +l+email+l) ;
 	}
 	}
 	catch (SQLException e) {
-		System.out.println("ChangeInfo "+ e);
+		System.out.println("Change INfo "+ e);
 	}
 	}
 	//user.ChangePassword(s, passwd)
 	public void changePassword(Statement s, String passwd) {
 		try {
-			s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+email+l);								
+		s.executeUpdate("Update user SET password ="+l+passwd+l+" WHERE email="+l+email+l);								
 		}
 		catch (SQLException e) {
-			System.out.println("changePassword "+ e);
+		System.out.println("savePayment "+ e);
 	}
 	}
 	
 	public void changeEmail(Statement s, String emailAddr) {
 		try {
-			s.executeUpdate("Update Users SET email="+l+emailAddr+l+" WHERE email="+l+email+l);
+		s.executeUpdate("Update user SET email="+l+emailAddr+l+" WHERE email="+l+email+l);
 		}
 		catch (SQLException e) {
-			System.out.println("changeEmail "+ e);
+		System.out.println("savePayment "+ e);
 	}
 	}
 	
@@ -153,7 +162,7 @@ public class User extends Utilities {
 			}
 		}
 		catch (SQLException e) {
-		System.out.println("viewPurchase "+ e);
+		System.out.println("savePayment "+ e);
 	}
 	}
 

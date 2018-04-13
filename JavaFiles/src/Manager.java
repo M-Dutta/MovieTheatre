@@ -23,7 +23,7 @@ public class Manager {
 			s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+managerEmail+l);								
 			}
 			catch (SQLException e) {
-			System.out.println("changePassword "+ e);
+			System.out.println("savePayment "+ e);
 		}
 		
 	}
@@ -41,7 +41,7 @@ public class Manager {
 			}
 			
 			catch (SQLException e) {
-			System.out.println("addEmployee "+ e);
+			System.out.println("savePayment "+ e);
 			}
 	}
 	
@@ -59,7 +59,7 @@ public class Manager {
 		emp.changeInfo(s, field, info, n);
 	}
 	
-	public void changeMovieInfo(Movie movie){
+	public void changeMovieInfo(Movie_info movie){
 		
 	}
 	
