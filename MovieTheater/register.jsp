@@ -81,6 +81,14 @@
         </style>
     </head>
     <body>
+        <jsp:useBean id = "userBean" class = "User" scope ="request"></jsp:useBean>
+        <jsp:setProperty name = "userBean" property = "firstName" />
+        <jsp:setProperty name = "userBean" property = "lastName" />
+        <jsp:setProperty name = "userBean" property = "email" />
+        <jsp:setProperty name = "userBean" property = "password" />
+        <jsp:setProperty name = "userBean" property = "passConfirm" />
+        <jsp:setProperty name = "userBean" property = "promos" />
+        
         <div class="nav-placeholder">
           <ul class="nav">
               <div class="logo">
@@ -109,14 +117,14 @@
         </div>
 
         <div class="register">
-            <form class="form" action="index.html" method="post">
+            <form class="form" action="accountConfirmation.html" method="GET">
                 <h1>Register</h1>
                 <input class ="i" type="text" placeholder="First Name" name="firstName"><br>
                 <input class ="i" type="text" placeholder="Last Name" name="lastName"><br>
                 <input class ="i" type="text" placeholder="Email" name="email"><br>
-                <input class ="i" type="text" placeholder="Password" name="Password"><br>
+                <input class ="i" type="text" placeholder="Password" name="password"><br>
                 <input class ="i" type="text" placeholder="Confirm Password" name="passConfirm"><br><br>
-                <p class = "p">Receive Promo Codes <input type="checkbox"></p><br>
+                <p class = "p">Receive Promo Codes <input type="checkbox" name = "promos"></p><br>
                 <button type="submit">Register</button><br>
             </form>
 
