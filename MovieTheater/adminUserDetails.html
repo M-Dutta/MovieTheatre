@@ -10,7 +10,66 @@
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+        <style>
+          body
+          {
+           background-color: maroon;
+           color: white;
+          }
+
+          .box
+          {
+            margin: auto;
+            text-align: center;
+            padding-top: 30px;
+          }
+
+          table
+          {
+            margin: auto;
+            font-size: 16px;
+            border-spacing: 40px;
+          }
+
+          td
+          {
+            width: 150px;
+          }
+
+          .return
+          {
+            width: 25%;
+          }
+
+          th
+          {
+            width: 150px;
+            border-bottom: 2px solid white;
+            font-size: 20px;
+          }
+
+
+          button
+          {
+            background-color: maroon;
+            font-size: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 100%;
+            color: white;
+            margin-bottom: 10px;
+          }
+
+          button:hover
+          {
+            background-color: white;
+            color: maroon;
+          }
+
+        </style>
+
     </head>
+
     <body>
         <div class="nav-placeholder">
           <ul class="nav">
@@ -39,41 +98,35 @@
           <br>
 
         </div>
-        <button type="button">Back To Options</button><br>
-        <h1>Users</h1>
-        <div>
-            <form class="" action="index.html" method="post">
-                <input type="text" placeholder="Search" name="search"><br><br>
-            </form>
-            <table id="userDetails">
-                <tr>
-                    <th>User Name</th>
-                    <th>email</th>
-                    <th>Password</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>person123</td>
-                    <td>person@email.com</td>
-                    <td>12345678</td>
-                    <td>
-                        <form class="" action="index.html" method="post">
-                            <button type="button">Edit</button><br>
-                        </form>
-                    </td>
-                    <td>
-                        <form class="" action="index.html" method="post">
-                            <button type="button">Remove</button><br>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-            <form class="" action="index.html" method="post">
-                <button type="button">Edit</button><br>
-            </form>
+
+        <div class = "users">
+          <div class = "box">
+          <h1>Users</h1>
+          <table>
+            <tr>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Password</th>
+
+            </tr>
+
+            <tr>
+                <td>person123</td>
+                <td>person@email.com</td>
+                <td>12345678</td>
+                <td>
+                  <form class="" action="index.html" method="post">
+                    <button type="button">Edit</button><br>
+                    <button type="button">Remove</button><br>
+                    </form>
+                  </td>
+            </tr>
+          </table>
+
+          <button class = "return" type = "button"> Add User </button><br>
+          <button class = "return" type = "button"> Back to Options </button><br>
         </div>
 
-        </div>
+      </div>
     </body>
 </html>

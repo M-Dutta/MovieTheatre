@@ -10,7 +10,68 @@
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
+        <style>
+          body
+          {
+           background-color: maroon;
+           color: white;
+          }
+
+          .box
+          {
+            margin: auto;
+            text-align: center;
+            padding-top: 30px;
+          }
+
+          table
+          {
+            margin: auto;
+            font-size: 16px;
+            border-spacing: 40px;
+          }
+
+          td
+          {
+            width: 150px;
+          }
+
+          .return
+          {
+            width: 25%;
+          }
+
+          th
+          {
+            width: 150px;
+            border-bottom: 2px solid white;
+            font-size: 20px;
+          }
+
+
+          button
+          {
+            background-color: maroon;
+            font-size: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 100%;
+            color: white;
+            margin-bottom: 10px;
+          }
+
+          button:hover
+          {
+            background-color: white;
+            color: maroon;
+          }
+
+        </style>
+
     </head>
+
+
     <body>
         <div class="nav-placeholder">
           <ul class="nav">
@@ -39,35 +100,40 @@
           <br>
 
         </div>
-        <button type="button">Back To Options</button><br>
-        <h1>Reports</h1>
-        <div class="rep">
-            <form class="" action="index.html" method="post">
-                <input type="text" placeholder="Search" name="search"><br><br>
-            </form>
-            <div class="reports">
-                <table id="reports">
-                    <tr>
-                        <th>Ticket #</th>
-                        <th>Movie</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>1234</td>
-                        <td>Black Panther</td>
-                        <td>03/04/0218</td>
-                        <td>18:00</td>
-                        <td>
-                            <form class="" action="index.html" method="post">
-                                <button type="submit">Refund</button><br>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
-        </div>
+        <div class = "reports">
+          <div class = "box">
+            <h1>Reports</h1>
+            <table>
+              <tr>
+                <th>Ticket #</th>
+                <th>Movie</th>
+                <th>Date</th>
+                <th>Time</th>
+
+              </tr>
+
+              <tr>
+                <td>1234</td>
+                <td>Black Panther</td>
+                <td>03/04/0218</td>
+                <td>18:00</td>
+                <td>
+                  <form class="" action="index.html" method="post">
+                    <button type="submit"> Refund </button><br>
+                  </form>
+                </td>
+
+              </tr>
+
+            </table>
+
+            <button class = "return" type = "button"> Back to Options </button><br>
+
+          </div>
+
+      </div>
+
+      
     </body>
 </html>

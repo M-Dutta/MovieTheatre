@@ -18,19 +18,83 @@
        color: white;
       }
 
-      div
+      .checkout
       {
-        margin: auto;
         text-align: center;
-        width: 75%;
-        border: 10px;
+        padding-top: 30px;
+      }
+
+      .box
+      {
+        border-style: solid;
+        border-width: 3px;
         border-color: white;
-        border-radius: 5px;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        width: 75%;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .form
+      {
+        text-align: left;
+      }
+
+      button
+      {
+        background-color: black;
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 30%;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      button:hover
+      {
+        background-color: white;
+        color: black;
+      }
+
+      .i
+      {
+        width: 60%;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 16px;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: black;
+        padding-left: 2px;
+        display: inline-block;
+        float: left;
+      }
+
+      label
+      {
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 150px;
+        text-align: right;
+        padding-right: 7px;
+
       }
 
       table
       {
         margin: auto;
+        width: 100%;
+      }
+
+      .p
+      {
+          margin: auto;
+          font-size:20px;
       }
 
     </style>
@@ -58,41 +122,41 @@
     <br>
     <br>
 
-    <div>
-    	<h1> Checkout </h4>
-      <br> <br>
+    <div class "checkout">
+      <div class= "box">
+    	   <h1> Checkout </h1>
+        <table>
+          <tr>
+            <td style = "width: 400px">
+              <form class = "form">
+                <label> Card Number:</label><input class ="i" type = "text" id = "cardNumber"> <br>
+                <label> Expiration Date:</label><input class ="i" type = "text" id = "expirationDate"> <br>
+                <label> CVV: </label><input class ="i" type = "text" id = "cvv"> <br>
+                <label> Address 1: </label><input class ="i" type = "text" id = "address1"> <br>
+                <label> Address 2: </label><input class ="i" type = "text" id = "address2"> <br>
+                <label> Zip Code: </label><input class ="i" type = "text" id = "zipCode"> <br>
+                <label> State: </label><input class ="i" type = "text" id = "state"> <br>
+                <label> Country: </label><input class ="i" type = "text" id ="country"> <br>
+                <label> Contact Number: </label><input class ="i" type = "text" id = "contactNumber"> <br>
+                <label> Promo Code: </label><input class ="i" type = "text" id = "promoCode">
+              </form>
+            </td>
 
-      <table>
-        <tr>
-          <td>
-            <form>
-              Card Number:      <input type = "text" id = "cardNumber"> <br>
-              Expiration Date:  <input type = "text" id = "expirationDate"> <br>
-              CVV:              <input type = "text" id = "cvv"> <br>
-              Address 1:        <input type = "text" id = "address1"> <br>
-              Address 2:        <input type = "text" id = "address2"> <br>
-              Zip Code:         <input type = "text" id = "zipCode"> <br>
-              State:            <input type = "text" id = "state"> <br>
-              Country:          <input type = "text" id ="country"> <br>
-              Contact Number:   <input type = "text" id = "contactNumber"> <br>
-            </form>
-          </td>
+            <td style = "width: 200px">
+              <p class = "p"> Black Panther </p> <br>
+              <p class = "p"> 3/6/2018 7:45 PM </p> <br>
+              <p class = "p"> 2 Adult Tickets </p> <br>
 
+            </td>
+          </tr>
 
-          <td>
-            <input type = "text" id = "promoCode" value = "Enter Promo Code"><br>
-            <p> Black Panther </p>
-            <p> 3/6/2018 7:45 PM </p>
-            <p> 2 Adult Tickets </p>
-          </td>
-        </tr>
+        </table>
 
-      </table>
+        <p> Total: $23.92 </p>
+        <button type = "button"> Place Order </button>
+        <button type = "button"> Cancel Order </button>
 
-      <p> Total: $23.92 </p>
-      <input type = "button" id = "placeOrder" value = "Place Order">
-      <input type = "button" id = "cancel" value = "Cancel Order">
-
+      </div>
     </div>
 
     <!--scripts-->

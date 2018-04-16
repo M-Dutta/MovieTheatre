@@ -19,7 +19,7 @@
      color: white;
     }
 
-    .profile
+    .email
     {
       text-align: center;
       padding-top: 30px;
@@ -34,34 +34,33 @@
       border-radius: 10px;
       padding-top: 10px;
       padding-bottom: 20px;
-      width: 70%;
+      width: 40%;
       margin: auto;
       margin-top: 30px;
-      column-count: 2;
     }
 
-    .b
+    button
     {
       background-color: black;
-      font-size: 16px;
+      font-size: 20px;
       border: 1px solid white;
       border-radius: 10px;
-      width: 70%;
+      width: 40%;
       color: white;
       margin-bottom: 10px;
     }
 
-    .b:hover
+    button:hover
     {
       background-color: white;
       color: black;
     }
 
-    p
+    .p
     {
-      text-align: left;
+      text-align: center;
+      margin: auto;
     }
-
 
     </style>
 </head>
@@ -88,31 +87,15 @@
     <br>
     <br>
 
-    <div class = "profile">
+    <div class = "email">
       <div class = "box">
-         <h1> User Profile </h1>
-         <br> <br>
+    	   <h1> Email Preferences </h1>
+         <p class = "p">Receive Promo Codes <input type="checkbox"></p><br>
+         <button type="submit"> Save Preferences </button><br>
 
-         <input class = "b" type = "button" id = "updateInfo" value = "Update Information"> <br>
-         <input class = "b" type = "button" id = "emailPreferences" value = "Email Preferences"> <br>
-         <input class = "b" type = "button" id = "purchaseHistory" value = "Purchase History"> <br>
-         <input class = "b" type = "button" id = "logout" value = "Logout"> <br>
-
-         <br><br>
-         <br><br>
-         <br><br>
-         <br><br>
-
-         <p>
-           Name: Jake Applebee <br><br>
-           Email: japplebee@gmail.com <br><br>
-           Password: il0v3apples! <br><br>
-           Payment Information: Card ending in 9675 <br><br>
-           Billing Information: 145 Rosewater Ct, Fayetteville NC, 37583 <br><br>
-         </p>
       </div>
-
     </div>
+
 
     <!--scripts-->
     <script src="js/jquery-3.3.1.min.js"></script>

@@ -18,22 +18,53 @@
        color: white;
       }
 
-      div
+      .box
       {
+        margin: auto;
         text-align: center;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
+        padding-top: 30px;
       }
 
       table
       {
         margin: auto;
+        font-size: 16px;
+        border-spacing: 40px;
+      }
+
+      td
+      {
+        width: 150px;
+      }
+
+      .return
+      {
+        width: 25%;
       }
 
       th
       {
-        width: 200px;
+        width: 150px;
+        border-bottom: 2px solid white;
+        font-size: 20px;
+      }
+
+
+      button
+      {
+        background-color: black;
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 100%;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      button:hover
+      {
+        background-color: white;
+        color: black;
       }
 
     </style>
@@ -62,58 +93,47 @@
     <br>
     <br>
 
-    <div>
-    	<h1> Cart </h4>
-      <table>
-        <tr>
-          <th> Date </th>
-          <th> Time </th>
-          <th> Movie Title </th>
-          <th> Seat Number </th>
-          <th> Ticket Type </th>
-          <th> Price </th>
-          <th> <th>
-        </tr>
+    <div class = "cart">
+      <div class = "box">
+      	<h1> Cart </h4>
+        <table>
+          <tr>
+            <th> Date </th>
+            <th> Time </th>
+            <th> Movie Title </th>
+            <th> Seat Number </th>
+            <th> Ticket Type </th>
+            <th> Price </th>
+          </tr>
 
-        <tr>
-          <td> 3/6/2018 </td>
-          <td> 7:45 PM </td>
-          <td> Black Panther </td>
-          <td> 14 </td>
-          <td> Adult </td>
-          <td> $11.50 </td>
-          <td> <input type = "button" id = "row1" value = "Remove"> </td>
-        </tr>
+          <tr>
+            <td> 3/6/2018 </td>
+            <td> 7:45 PM </td>
+            <td> Black Panther </td>
+            <td> 14 </td>
+            <td> Adult </td>
+            <td> $11.50 </td>
+            <td> <button type = "button"> Remove </button> </td>
+          </tr>
 
-        <tr>
-          <td> 3/6/2018 </td>
-          <td> 7:45 PM </td>
-          <td> Black Panther </td>
-          <td> 15 </td>
-          <td> Adult </td>
-          <td> $11.50  </td>
-          <td> <input type = "button" id = "row2" value = "Remove"> </td>
-        </tr>
+          <tr>
+            <td> 3/6/2018 </td>
+            <td> 7:45 PM </td>
+            <td> Black Panther </td>
+            <td> 15 </td>
+            <td> Adult </td>
+            <td> $11.50  </td>
+            <td> <button type = "button"> Remove </button> </td>
+          </tr>
 
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-      </table>
-
-      <br>
-      <br>
+        </table>
 
       <p> Total: $23.92 </p>
-      <input type = "button" id = "backToBrowse" value = "Back To Browse">
-      <input type = "button" id = "checkout" value = "Continue To Checkout">
+      <button class = "return" type = "button"> Back To Browse </button>
+      <button class = "return" type = "button"> Continue To Checkout </button>
 
     </div>
+  </div>
 
     <!--scripts-->
     <script src="js/jquery-3.3.1.min.js"></script>

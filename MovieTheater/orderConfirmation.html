@@ -12,21 +12,49 @@
     <title>Theater</title>
 
     <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
 
-      div
-      {
-        margin: auto;
-        text-align: center;
-        width: 75%;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
+    body
+    {
+     background-color: black;
+     color: white;
+    }
+
+    .confirmed
+    {
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    .box
+    {
+      text-align: center;
+      border-style: solid;
+      border-width: 3px;
+      border-color: white;
+      border-radius: 10px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      width: 40%;
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    .b
+    {
+      background-color: black;
+      font-size: 20px;
+      border: 1px solid white;
+      border-radius: 10px;
+      width: 30%;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .b:hover
+    {
+      background-color: white;
+      color: black;
+    }
 
     </style>
 </head>
@@ -53,13 +81,16 @@
     <br>
     <br>
 
-    <div>
-    	<h1> Order Confirmation </h4>
-      <br> <br>
-      <p> Purchase has been confirmed. Confirmation email sent to person@email.com. </p> <br> <br>
-      <input type = "button" id = "backToBrowse" value = "Back To Browse"> <br>
+    <div class = "confirmed">
+      <div class = "box">
+    	   <h1> Order Confirmation </h1>
+           <br> <br>
+           <p class = "p"> Purchase has been confirmed. Confirmation email sent to person@email.com. </p> <br> <br>
+           <input class = "b" type = "button" id = "backToBrowse" value = "Back To Browse"> <br>
 
+      </div>
     </div>
+
 
     <!--scripts-->
     <script src="js/jquery-3.3.1.min.js"></script>

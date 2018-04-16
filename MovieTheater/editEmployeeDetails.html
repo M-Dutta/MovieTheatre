@@ -10,7 +10,75 @@
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
+        <style>
+          body
+          {
+           background-color: maroon;
+           color: white;
+          }
+
+          .editEmployee
+          {
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+          }
+
+          .form
+          {
+            border-style: solid;
+            border-width: 3px;
+            border-color: white;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            width: 40%;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+          }
+
+          .return
+          {
+            width: 25%;
+          }
+
+          .i
+          {
+            width: 60%;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid white;
+            border-radius: 10px;
+            color: black;
+            padding-left: 2px;
+          }
+
+
+          button
+          {
+            background-color: maroon;
+            font-size: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 40%;
+            color: white;
+            margin-bottom: 10px;
+          }
+
+          button:hover
+          {
+            background-color: white;
+            color: maroon;
+          }
+
+        </style>
+
     </head>
+
+
     <body>
         <div class="nav-placeholder">
           <ul class="nav">
@@ -39,23 +107,20 @@
           <br>
 
         </div>
-        <button type="button">Back To Options</button><br>
-        <h1>Employee</h1>
-        <div>
-            <div class="addEmployee">
-                <form class="" action="index.html" method="post">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="email">
-                    <input type="text" placeholder="Password">
-                    <button type="button">Save</button>
-                </form>
-            </div>
-            <br><br>
-            <form class="" action="index.html" method="post">
-                <button type="button">View</button><br>
-            </form>
-        </div>
+
+        <div class="editEmployee">
+          <form class ="form">
+            <h1> Edit Employee </h1>
+            <input class = "i" type="text" placeholder="Name">
+            <input class = "i" type="text" placeholder="email">
+            <input class = "i" type="text" placeholder="Password">
+            <button type="button">Save</button>
+          </form>
+
+          <button class = "return" type = "button"> Back to Employees List </button><br>
 
         </div>
+
+
     </body>
 </html>

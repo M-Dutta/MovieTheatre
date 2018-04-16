@@ -10,7 +10,55 @@
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
+        <style>
+
+          body
+          {
+           background-color: maroon;
+           color: white;
+          }
+
+          .adminOptions
+          {
+            text-align: center;
+            padding-top: 30px;
+          }
+
+          .form
+          {
+            border-style: solid;
+            border-width: 3px;
+            border-color: white;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            width: 40%;
+            margin: auto;
+            margin-top: 30px;
+          }
+
+          button
+          {
+            background-color: maroon;
+            font-size: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 30%;
+            color: white;
+            margin-bottom: 10px;
+          }
+
+          button:hover
+          {
+            background-color: white;
+            color: maroon;
+          }
+
+        </style>
+
     </head>
+
     <body>
         <div class="nav-placeholder">
           <ul class="nav">
@@ -38,16 +86,17 @@
           <br>
 
         </div>
-        <h1>Admin Options</h1>
-        <div class="adminOptions">
-            <form class="" action="index.html" method="post">
-                <button type="button" style="width:100px">Movies</button><br>
-                <button type="button" style="width:100px">Users</button><br>
-                <button type="button" style="width:100px">Employees</button><br>
-                <button type="button" style="width:100px">Employees</button><br>
-                <button type="button" style="width:100px">Promo Codes</button><br>
-                <button type="button" style="width:100px">Reports</button><br>
+        <div class = "adminOptions">
+            <form class="form" action="index.html" method="post">
+                <h1>Admin Options</h1>
+                <button type="button"> Movies</button><br>
+                <button type="button"> Users</button><br>
+                <button type="button"> Employees</button><br>
+                <button type="button"> Employees</button><br>
+                <button type="button"> Promo Codes</button><br>
+                <button type="button"> Reports </button><br>
             </form>
         </div>
+
     </body>
 </html>

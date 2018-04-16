@@ -18,23 +18,47 @@
        color: white;
       }
 
-      div
+      .history
       {
         margin: auto;
         text-align: center;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
+        padding-top: 30px;
       }
 
       table
       {
         margin: auto;
+        font-size: 16px;
+        border-spacing: 40px;
+      }
+
+      td
+      {
+        border-bottom: 2px solid white;
       }
 
       th
       {
-          width: 200px;
+          width: 150px;
+          border: 2px solid white;
+          border-radius:10px; 
+      }
+
+      button
+      {
+        background-color: black;
+        font-size: 20px;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 20%;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      button:hover
+      {
+        background-color: white;
+        color: black;
       }
 
     </style>
@@ -62,7 +86,7 @@
     <br>
     <br>
 
-    <div>
+    <div class = "history">
     	<h1> Purchase History </h4>
       <table>
         <tr>
@@ -105,8 +129,8 @@
       <br>
       <br>
 
-      <input type = "button" id = "backToBrowse" value = "Back To User Profile">
-      <input type = "button" id = "checkout" value = "Back to Browse">
+      <button type = "submit"> Back To User Profile </button>
+      <button type = "button"> Back to Browse </button>
 
     </div>
 
