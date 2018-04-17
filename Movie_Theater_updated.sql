@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS `Movie_Theater`.`m_info` ;
 CREATE TABLE IF NOT EXISTS `Movie_Theater`.`m_info` (
   `id` INT NOT NULL,
   `desc` LONGTEXT NULL,
-  `rating` INT(1) ZEROFILL NULL,
+  `rating` INT(1)  NULL,
   `age` INT NULL,
   `genre` VARCHAR(45) NULL,
   `cast` LONGTEXT NULL,
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`user` (
   `phone` VARCHAR(16) NULL,
   `password` VARCHAR(50) NOT NULL,
   `birthdate` DATE NOT NULL,
-  `email_pref` INT ZEROFILL NOT NULL,
-  `status` INT ZEROFILL NOT NULL,
+  `email_pref` INT  NOT NULL,
+  `status` INT  NOT NULL,
   `street` VARCHAR(255) NULL,
   `city` VARCHAR(255) NULL,
   `state` VARCHAR(255) NULL,
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`employee_account` (
   `email` VARCHAR(255) NULL,
   `phone` VARCHAR(16) NULL,
   `password` VARCHAR(50) NULL,
-  `promo_pref` INT ZEROFILL NULL,
+  `promo_pref` INT  NULL,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   PRIMARY KEY (`emp_id`),
   CONSTRAINT `fk_employee_account_employee1`
