@@ -12,21 +12,56 @@
     <title>Theater</title>
 
     <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
 
-      div
-      {
-        margin: auto;
-        text-align: center;
-        width: 75%;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
+    body
+    {
+     background-color: black;
+     color: white;
+    }
+
+    .profile
+    {
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    .box
+    {
+      text-align: center;
+      border-style: solid;
+      border-width: 3px;
+      border-color: white;
+      border-radius: 10px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      width: 70%;
+      margin: auto;
+      margin-top: 30px;
+      column-count: 2;
+    }
+
+    button
+    {
+      background-color: black;
+      font-size: 16px;
+      border: 1px solid white;
+      border-radius: 10px;
+      width: 70%;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    button:hover 
+    {
+      background-color: white;
+      color: black;
+    }
+
+    p
+    {
+      text-align: left;
+    }
+
 
     </style>
 </head>
@@ -53,25 +88,30 @@
     <br>
     <br>
 
-    <div>
-    	<h1> User Profile </h4>
-      <br> <br>
+    <div class = "profile">
+      <div class = "box">
+         <h1> User Profile </h1>
+         <br> <br>
 
-      <div>
-        <p> Name: Jake Applebee </p>
-        <p> Email: japplebee@gmail.com </p>
-        <p> Password: il0v3apples! </p>
-        <p> Payment Information: Card ending in 9675 </p>
-        <p> Billing Information: 145 Rosewater Ct, Fayetteville NC, 37583 </p>
-      </div>
+         <button type = "submit"> Update Information </button>
+         <button type = "submit"> Email Preferences </button>
+         <button type = "submit"> Purchase History </button>
+         <form action = "logout" method = "GET">
+           <button type = "submit" name = "logout"> Logout </button>
+         </form>
 
-      <div>
-          <input type = "button" id = "updateInfo" value = "Update Information"> <br>
-          <input type = "button" id = "emailPreferences" value = "Email Preferences"> <br>
-          <input type = "button" id = "purchaseHistory" value = "Purchase History"> <br>
-          <form action = "logout" method = "GET">
-          	<button type = "submit" name = "logout"> Logout </button> 
-          </form>
+         <br><br>
+         <br><br>
+         <br><br>
+         <br><br>
+
+         <p>
+           Name: Jake Applebee <br><br>
+           Email: japplebee@gmail.com <br><br>
+           Password: il0v3apples! <br><br>
+           Payment Information: Card ending in 9675 <br><br>
+           Billing Information: 145 Rosewater Ct, Fayetteville NC, 37583 <br><br>
+         </p>
       </div>
 
     </div>
