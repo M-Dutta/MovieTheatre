@@ -49,7 +49,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
    
 	try {
-		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,0, 0, "Blank", "Blank","Blank",0000000);
+		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,0, 0, "Blank", "Blank","Blank",0);
 		nU.register(Utilities.stmt);
 		System.out.println("Email: "+nU.email);
 		nU.RegistrationEmail(Utilities.stmt);
@@ -60,7 +60,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-	response.sendRedirect("accountConfirmation.html");
+	response.sendRedirect("verifyEmail.html");
 	
 		
     }

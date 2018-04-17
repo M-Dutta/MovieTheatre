@@ -29,10 +29,16 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	String password = request.getParameter("password");
 	
 	User nU = new User();
+	nU.getUser(Utilities.stmt, email);
+	if (nU.status == 0) {
+		response.sendRedirect("verifyEmail.html");
+	}
+	else {
 	nU.login(Utilities.stmt, email, password);
 	System.out.println("Sign-In");
-
 	response.sendRedirect("index.html"); ////////THIS <======
+	}
+	
 	}	
 	if (request.getParameter("forgot") != null) {
 		String email = request.getParameter("email");

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ResetServlet extends HttpServlet {
+public class VerifyEmailServlet extends HttpServlet {
  
 
 	/**
@@ -25,23 +25,18 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     
       String email = request.getParameter("email");
   	  int verifID = Integer.parseInt(request.getParameter("verification"));
-  	  String newPassword = request.getParameter("newPassword");
-  	  String confirmPassword = request.getParameter("confirmPassword");
-    
-  	  if (newPassword.equals(confirmPassword)) 
-  	  {
-    	newPassword = Utilities.hasher(newPassword);    
-    	User u = new User();
-    	u.getUser(Utilities.stmt, email);
-    	try {
-    		ResultSet r = Utilities.stmt.executeQuery("select * from resets as r where verifID="+ verifID);
+  	User u = new User();
+	u.getUser(Utilities.stmt, email);
+    try 
+    {
+    	ResultSet r = Utilities.stmt.executeQuery("select * from verify as v where v.verifyID="+ verifID);
     		r.next();
     		if (email.equals(r.getString(1) ) && verifID == r.getInt(2) ) {
     			u.getUser(Utilities.stmt, email);
-    			u.changePassword(Utilities.stmt, newPassword);
-    			response.sendRedirect("index.html");
-    			System.out.println("Password Reset");
-    			Utilities.stmt.executeQuery("DELETE  from resets where verifID="+ verifID);
+    			u.changeInfo(Utilities.stmt, "status", "1", 1);
+    			System.out.println("Confirmed");
+    			Utilities.stmt.executeUpdate("DELETE from verify where verifyID="+ verifID);
+    			response.sendRedirect("accountConfirmation.html");
     			
     		}
     	} catch (SQLException e) {
@@ -52,7 +47,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 	
     
   //  dispatcher.forward(request, response);
-	}
-}	
+}
+	
 
 

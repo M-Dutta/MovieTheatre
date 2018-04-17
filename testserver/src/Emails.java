@@ -1,18 +1,14 @@
-import java.util.Properties;
-import java.sql.Date; 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+
+import com.mysql.jdbc.Statement;
+
+import javax.activation.*;
 
 public class Emails {
 
-public void RegistrationEmail(Statement s, String email)	{
+public void RegistrationEmail(String email)	{
 	 // Recipient's email ID needs to be mentioned.
 	   String to = email;
 
@@ -103,11 +99,16 @@ public void ResetEmail() {
 	      mex.printStackTrace();
 	   }
 	}
-	
+
+public static void main (String [] args) {  
+	Emails em = new Emails();
+	em.RegistrationEmail("theater_3@outlook.com");
+}
+
+
 }
 
 
 	
 	
 	
-

@@ -2,6 +2,14 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class User extends Utilities {
 	public String email;
@@ -37,10 +45,10 @@ public class User extends Utilities {
 	        this.state = state;
 	        this.zip=   zip;
 	}
-	public User() {}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	
-		
 	//Selecting user ---- Only use if user is registered
 	public void getUser(Statement s, String email){
 		try {
@@ -83,14 +91,21 @@ public class User extends Utilities {
 	public void login(Statement s, String  email, String password) {
 		User u = new User();
 		u.getUser( s,  email);
-		if (u.Password.equals(Utilities.hasher(password))) {
-			u.changeInfo(Utilities.stmt, "status","2222", 1); //Status 2 = logged In // 1 = verified
-			System.out.println("Logged In");
+		if (u.status > 0) 
+		{
+			if (u.Password.equals(Utilities.hasher(password))) {
+				u.changeInfo(Utilities.stmt, "status","2", 1); //Status 2 = logged In // 1 = verified
+				System.out.println("Logged In");
+			}
+			else 
+			{
+				System.out.println("NOPE");
+			}
 		}
 		else {
-			System.out.println("NOPE");
+			System.out.println("Unverified Email");
+			
 		}
-		
 	}
 	
 	public void logout(Statement s) {
@@ -169,5 +184,135 @@ public class User extends Utilities {
 		System.out.println("savePayment "+ e);
 	}
 	}
+	
+	public void RegistrationEmail(Statement s)	{
+		 // Recipient's email ID needs to be mentioned.
+		   String to =  this.email;
+		   System.out.println("this is Sent to :"+ to);
+		   int key =0;
+		   try {
+			s.executeUpdate("Insert into verify(email) values("+l+email+l+")");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 try {
+			ResultSet r = s.executeQuery("Select v.verifyID FROM verify as v WHERE v.email="+l+email+l+")" );
+			r.next();
+			key = r.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		   
+		   
+		   // Sender's email ID needs to be mentioned
+		   String from = "theater_3@outlook.com";
+
+		   // Assuming you are sending email from localhost
+		   String host = "localhost";
+
+		   // Get system properties
+		   Properties properties = System.getProperties();
+
+		   properties.setProperty("mail.user", "theater_3@outlook.com");
+		   properties.setProperty("mail.password", "securePassword");
+		   
+		   // Setup mail server
+		   properties.setProperty("mail.smtp.host", host);
+
+		   // Get the default Session object.
+		   Session session = Session.getDefaultInstance(properties);
+
+		   try {
+		      // Create a default MimeMessage object.
+		      MimeMessage message = new MimeMessage(session);
+
+		      // Set From: header field of the header.
+		      message.setFrom(new InternetAddress(from));
+
+		      // Set To: header field of the header.
+		      message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+		      // Set Subject: header field
+		      message.setSubject("Register Confirmation");
+
+		      // Now set the actual message
+		      message.setText("This is your registration verification Code to confirm registration: "+ key);
+
+		      // Send message
+		      Transport.send(message);
+		      System.out.println("Sent message successfully....");
+		   } catch (MessagingException mex) {
+		      mex.printStackTrace();
+		   }
+		}
+
+	public void ResetPasswordEmail(Statement s, String email) {
+			User u = new User();
+			u.getUser(s, email);
+		 // Recipient's email ID needs to be mentioned.
+		   String to =  u.email ;//"theater_3@outlook.com";
+		   System.out.println("this is teh TO :"+ to);
+		   int key =0;
+		   try {
+			s.executeUpdate("Insert into resets(email) values("+l+email+l+")");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 try {
+			ResultSet r = s.executeQuery("Select r.verifID FROM resets as r WHERE r.email="+l+email+l+")" );
+			r.next();
+			key = r.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		   
+
+		   // Sender's email ID needs to be mentioned
+		   String from = "theater_3@outlook.com";
+
+		   // Assuming you are sending email from localhost
+		   String host = "localhost";
+
+		   // Get system properties
+		   Properties properties = System.getProperties();
+
+		   properties.setProperty("mail.user", "theater_3@outlook.com");
+		   properties.setProperty("mail.password", "securePassword");
+		   
+		   // Setup mail server
+		   properties.setProperty("mail.smtp.host", host);
+
+		   // Get the default Session object.
+		   Session session = Session.getDefaultInstance(properties);
+
+		   try {
+		      // Create a default MimeMessage object.
+		      MimeMessage message = new MimeMessage(session);
+
+		      // Set From: header field of the header.
+		      message.setFrom(new InternetAddress(from));
+
+		      // Set To: header field of the header.
+		      message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+		      // Set Subject: header field
+		      message.setSubject("Password Reset");
+
+		      // Now set the actual message
+		      message.setText("This is your Verification number :"+ key);
+
+		      // Send message
+		      Transport.send(message);
+		      System.out.println("Sent message successfully....");
+		   } catch (MessagingException mex) {
+		      mex.printStackTrace();
+		   }
+		}
+		
+	
 
 }
