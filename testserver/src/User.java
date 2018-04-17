@@ -83,7 +83,6 @@ public class User extends Utilities {
 	public void login(Statement s, String  email, String password) {
 		User u = new User();
 		u.getUser( s,  email);
-		System.out.println(u.email);
 		if (u.Password.equals(Utilities.hasher(password))) {
 			System.out.println("Logged In");
 		}
