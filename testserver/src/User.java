@@ -197,9 +197,10 @@ public class User extends Utilities {
 			e.printStackTrace();
 		}
 		 try {
-			ResultSet r = s.executeQuery("Select v.verifyID FROM verify as v WHERE v.email="+l+email+l+")" );
+			ResultSet r = s.executeQuery("Select * from verify as v where v.email="+l+email+l);
 			r.next();
-			key = r.getInt(1);
+			
+			key = r.getInt(2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -253,22 +254,22 @@ public class User extends Utilities {
 			u.getUser(s, email);
 		 // Recipient's email ID needs to be mentioned.
 		   String to =  u.email ;//"theater_3@outlook.com";
-		   System.out.println("this is teh TO :"+ to);
-		   int key =0;
+		   System.out.println("this is sent To :"+ to);
+		   int key = 0;
 		   try {
-			s.executeUpdate("Insert into resets(email) values("+l+email+l+")");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 try {
-			ResultSet r = s.executeQuery("Select r.verifID FROM resets as r WHERE r.email="+l+email+l+")" );
-			r.next();
-			key = r.getInt(1);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+				s.executeUpdate("Insert into resets(email) values("+l+email+l+")");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 try {
+				ResultSet r = s.executeQuery("Select * from resets as r where r.email="+l+email+l);
+				r.next();
+				key = r.getInt(2);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		   
 
 		   // Sender's email ID needs to be mentioned

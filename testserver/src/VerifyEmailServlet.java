@@ -37,8 +37,11 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     			System.out.println("Confirmed");
     			Utilities.stmt.executeUpdate("DELETE from verify where verifyID="+ verifID);
     			response.sendRedirect("accountConfirmation.html");
-    			
     		}
+    		else {
+    			response.sendRedirect("verifyEmail.html");
+    		}
+    		
     	} catch (SQLException e) {
 		e.printStackTrace();
     	}

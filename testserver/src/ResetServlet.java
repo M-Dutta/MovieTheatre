@@ -24,7 +24,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     response.setContentType("text/html; charset=UTF-8");
     
       String email = request.getParameter("email");
-  	  int verifID = Integer.parseInt(request.getParameter("verification"));
+  	  int resetID = Integer.parseInt(request.getParameter("verification"));
   	  String newPassword = request.getParameter("newPassword");
   	  String confirmPassword = request.getParameter("confirmPassword");
     
@@ -34,14 +34,14 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     	User u = new User();
     	u.getUser(Utilities.stmt, email);
     	try {
-    		ResultSet r = Utilities.stmt.executeQuery("select * from resets as r where verifID="+ verifID);
+    		ResultSet r = Utilities.stmt.executeQuery("select * from resets where resetID="+ resetID);
     		r.next();
-    		if (email.equals(r.getString(1) ) && verifID == r.getInt(2) ) {
+    		if (email.equals(r.getString(1) ) && resetID == r.getInt(2) ) {
     			u.getUser(Utilities.stmt, email);
     			u.changePassword(Utilities.stmt, newPassword);
     			response.sendRedirect("index.html");
     			System.out.println("Password Reset");
-    			Utilities.stmt.executeQuery("DELETE  from resets where verifID="+ verifID);
+    			Utilities.stmt.executeUpdate("DELETE from resets where resetID="+ resetID);
     			
     		}
     	} catch (SQLException e) {

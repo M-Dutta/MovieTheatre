@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class signInServlet extends HttpServlet {
  
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static User globaluser = new User();
 	
 @Override
 public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,6 +35,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	}
 	else {
 	nU.login(Utilities.stmt, email, password);
+	globaluser = nU;
 	System.out.println("Sign-In");
 	response.sendRedirect("index.html"); ////////THIS <======
 	}

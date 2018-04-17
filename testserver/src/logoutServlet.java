@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class logoutServlet extends HttpServlet {
  
-
 	/**
 	 * 
 	 */
@@ -23,7 +22,8 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	response.setContentType("text/html; charset=UTF-8");
 	
 	if (request.getParameter("logout") != null)
-	{
+	{	
+		signInServlet.globaluser.logout(Utilities.stmt);
 		response.sendRedirect("logout.html");	
 	}
 
