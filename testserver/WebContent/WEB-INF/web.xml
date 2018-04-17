@@ -8,7 +8,19 @@
   
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/index.html</url-pattern> 
+    <url-pattern>/register</url-pattern> 
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name> SignInServlet </servlet-name>
+  	<servlet-class> signInServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name> SignInServlet</servlet-name>
+  	<url-pattern> /signIn </url-pattern>
+  </servlet-mapping>
+  
+  
   
 </web-app>
