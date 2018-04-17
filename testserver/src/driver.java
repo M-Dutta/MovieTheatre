@@ -1,13 +1,21 @@
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 public class driver  {
 	public static void main (String [] args) throws InterruptedException, ParseException {
 	
 	     
-		User jeff = new User( "Mynameisfeff@taylorSwift.com","jesusholdthewheel", "Jeff",
-				 "TK","666-777", Utilities.DateConverter("1996-03-03")  ,1, 0,"Bronx", "detroit", "themoon", 66666);	
-		jeff.register(Utilities.stmt);
+		try {
+			ResultSet r = Utilities.stmt.executeQuery("select * from admin where admin_id='1'");
+			r.next();
+			System.out.println(r.getInt(1)+r.getString(2));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		/**
 		User dummy = new User("1","", null, null, null, null, 0, 0, null, null, null, 0);

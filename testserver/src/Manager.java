@@ -1,3 +1,4 @@
+import java.sql.ResultSet;   
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -7,20 +8,64 @@ public class Manager {
 	public String designation;
 	public String managerEmail;
 	public String managerPassword;
+	public int managerStatus;
 	String l = "'";
 	String L = "','";
 	
-	public void login(String id, String password) {
-		
+	public Manager() {}
+	
+	public Manager(int  managerId, String designation, String managerEmail, String managerPassword,int managerStatus) {
+		this.managerId = managerId;
+		this.designation =designation;
+		this.managerEmail = managerEmail;
+		this.managerPassword = managerPassword;
+		this.managerStatus = managerStatus;
 	}
 	
-	public void logout() {
-		
+	public void getManager(Statement s, int id) {
+		try {
+			System.out.println(id);
+			ResultSet r = s.executeQuery("SELECT * from movie_theater.manager where manager_id="+id);
+			r.next();
+			this.managerId = r.getInt(1);
+			this.designation = r.getString(2);
+			this.managerEmail = r.getString(3);
+			this.managerPassword = r.getString(4);
+			this.managerStatus = r.getInt(5);	
+		}
+		catch(SQLException e) {
+			System.out.println("getManager "+ e);
+			e.printStackTrace();
+			
+		}
 	}
+	
+	public void managerlogin(int id, String password) {
+		Manager m = new Manager();
+		m.getManager(Utilities.stmt, id);
+		if (m.managerPassword.equals(password) ) {
+			try {
+				Utilities.stmt.executeUpdate("Update manager SET status = 2 WHERE manager_id="+ managerId);
+			} catch (SQLException e) {
+				System.out.println("ManagerLogin "+ e);
+			}	
+			
+		}
+	}
+	
+	
+	public void logout(Statement s) {		
+		try {
+			s.executeUpdate("Update Manager SET status = 1 WHERE manager_id="+ managerId);
+		} catch (SQLException e) {
+			System.out.println("ManagerLogout "+ e);
+		}	
+	}
+	
 	
 	public void changePassword(Statement s, String passwd) {
 		try {
-			s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE email="+l+managerEmail+l);								
+			s.executeUpdate("Update Users SET password ="+l+passwd+l+" WHERE manager_id="+l+managerId+l);								
 			}
 			catch (SQLException e) {
 			System.out.println("savePayment "+ e);

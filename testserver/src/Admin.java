@@ -7,36 +7,57 @@ public class Admin extends Utilities{
 	public String designation;
 	public String adminEmail;
 	public String adminPassword;
+	public int adminstatus;
 	String l = "'";
 	String L = "','";
 	
-	public Admin(int adminId, String designation, String adminEmail, String adminPassword) {
+	public Admin(int adminId, String designation, String adminEmail, String adminPassword,int adminStatus) {
 		this.adminId = adminId;
 		this.designation =designation;
 		this.adminEmail = adminEmail;
 		this.adminPassword = adminPassword;
+		this.adminstatus = adminStatus;
 	}
 	public Admin() {}
 	
 	public void getAdmin(Statement s, int id) {
 	try {
-		ResultSet r = s.executeQuery("SELECT * from admin WHERE admin_id="+l+adminId+l);
+		ResultSet r = s.executeQuery("SELECT * from admin WHERE admin_id="+l+id+l);
+		r.next();
 		this.adminId = r.getInt(1);
 		this.designation = r.getString(2);
 		this.adminEmail = r.getString(3);
-		this.adminPassword = r.getString(3);
+		this.adminPassword = r.getString(4);
+		this.adminstatus = r.getInt(5);
 	}
 		
 	catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("getAdmin "+ e);
 		}
 	}
 	
-	public void login(int id, String password) {
+	public void Adminlogin(int id, String password) {
+	Admin a = new Admin();
+	a.getAdmin(Utilities.stmt, id);
+	if (a.adminPassword.equals(password) ) {
+		try {
+			Utilities.stmt.executeUpdate("Update Admin SET status = 2 WHERE admin_id="+ adminId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		
 	}
+	}
 	
-	public void logout(){
+	public void Adminlogout(Statement s){
+		try {
+			Utilities.stmt.executeUpdate("Update Admin SET status = 1 WHERE admin_id="+ adminId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
 		
 	}
 
@@ -45,7 +66,7 @@ public class Admin extends Utilities{
 		s.executeUpdate("Update Admin SET admin_password ="+l+passwd+l+" WHERE admin_id="+ adminId);						
 		}
 		catch (SQLException e) {
-		System.out.println("savePayment "+ e);
+		System.out.println("AdminChangePassword "+ e);
 	}
 		
 	}
