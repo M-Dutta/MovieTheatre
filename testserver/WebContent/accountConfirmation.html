@@ -39,7 +39,7 @@
       margin-top: 30px;
     }
 
-    .b
+    button
     {
       background-color: black;
       font-size: 20px;
@@ -50,7 +50,7 @@
       margin-bottom: 10px;
     }
 
-    .b:hover
+    button:hover
     {
       background-color: white;
       color: black;
@@ -95,9 +95,11 @@
       <div class = "box">
     	   <h1> Account Confirmation </h4>
            <br> <br>
-           <p class = "p"> person@email.com has been confirmed. </p> <br> <br>
-           <input class = "b" type = "button" id = "browse" value = "Browse Movies"> <br>
-           <input class = "b" type = "button" id = "profile" value = "View User Profile">
+           <p class = "p"> Your account has been Verified. </p> <br> <br>
+           <form action="accountConfirmation" method="GET">
+          	 <button type = "submit" name = "browse"> Browse Movies </button><br>
+           	 <button type = "submit" name = "profile"> View User Profile </button>
+           </form>
       </div>
     </div>
 

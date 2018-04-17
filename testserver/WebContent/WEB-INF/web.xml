@@ -8,7 +8,6 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>SignInServlet</servlet-name>
     <servlet-class> signInServlet</servlet-class>
@@ -17,7 +16,22 @@
     <servlet-name>SignInServlet</servlet-name>
     <url-pattern> /signIn </url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class> AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern> /AdminSignIn </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ManagerLoginServlet</servlet-name>
+    <servlet-class> ManagerLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerLoginServlet</servlet-name>
+    <url-pattern> /ManagerSignIn </url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>ResetServlet</servlet-name>
     <servlet-class> ResetServlet</servlet-class>
@@ -26,7 +40,6 @@
     <servlet-name>ResetServlet</servlet-name>
     <url-pattern> /resetPass </url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>VerifyEmailServlet</servlet-name>
     <servlet-class> VerifyEmailServlet</servlet-class>
@@ -36,6 +49,16 @@
     <url-pattern> /verifyEmail </url-pattern>
   </servlet-mapping>
   
+   <servlet>
+    <servlet-name>AccountConfirmationServlet</servlet-name>
+    <servlet-class> AccountConfirmationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccountConfirmationServlet</servlet-name>
+    <url-pattern> /accountConfirmation</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>UserProfileServlet</servlet-name>
     <servlet-class> userProfileServlet</servlet-class>
@@ -44,7 +67,6 @@
     <servlet-name>UserProfileServlet</servlet-name>
     <url-pattern> /userProfile </url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class> logoutServlet</servlet-class>
