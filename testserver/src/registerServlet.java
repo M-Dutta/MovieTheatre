@@ -3,7 +3,10 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +22,10 @@ public class registerServlet extends HttpServlet {
 @Override
 public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
+	
+	ServletConfig config = this.getServletConfig();
+	ServletContext ctx = config.getServletContext();
+	RequestDispatcher dispatcher = ctx.getRequestDispatcher("/errMessage.html");
 	
     // Set the response message's MIME type
     response.setContentType("text/html; charset=UTF-8");
@@ -39,17 +46,32 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     System.out.println("pass " +passConfirm);
     System.out.println("cb " +checkbox);
     
-    if (Password.equals(passConfirm)) {
+    if (Password.equals(passConfirm)) 
+    {
   	  Password = Utilities.hasher(Password);  
-    }
+
    
 	try {
 		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,0, 0, "Blank", "Blank","Blank",0000000);
 		nU.register(Utilities.stmt);
-		} catch (ParseException e) {
+		} 
+	catch (ParseException e)
+		{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
+		
+	dispatcher = ctx.getRequestDispatcher("/accountConfirmation.html");
+		
+    }
+	
+	else
+	{
+		
+	}
+	
+    
+    dispatcher.forward(request, response);
 	}
 }	
 
