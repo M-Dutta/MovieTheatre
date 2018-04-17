@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-
   <servlet>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>registerServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/register</url-pattern> 
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name> SignInServlet </servlet-name>
-  	<servlet-class> signInServlet</servlet-class>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class> signInServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name> SignInServlet</servlet-name>
-  	<url-pattern> /signIn </url-pattern>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern> /signIn </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ResetServlet</servlet-name>
+    <servlet-class> ResetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResetServlet</servlet-name>
+    <url-pattern> /resetPass </url-pattern>
   </servlet-mapping>
   
-  
-  
+   <servlet>
+    <servlet-name>VerifyEmailServlet</servlet-name>
+    <servlet-class> VerifyEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VerifyEmailServlet</servlet-name>
+    <url-pattern> /verifyEmail </url-pattern>
+  </servlet-mapping>
 </web-app>
