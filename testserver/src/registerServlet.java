@@ -1,9 +1,5 @@
 import java.io.IOException; 
-
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -55,14 +51,17 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 	try {
 		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,0, 0, "Blank", "Blank","Blank",0000000);
 		nU.register(Utilities.stmt);
+		System.out.println("Email: "+nU.email);
+		nU.RegistrationEmail(Utilities.stmt);
+		
 		} 
 	catch (ParseException e)
 		{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
-		
-	dispatcher = ctx.getRequestDispatcher("/accountConfirmation.html");
+	response.sendRedirect("accountConfirmation.html");
+	
 		
     }
 	
@@ -72,7 +71,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 	}
 	
     
-    dispatcher.forward(request, response);
+  //  dispatcher.forward(request, response);
 	}
 }	
 
