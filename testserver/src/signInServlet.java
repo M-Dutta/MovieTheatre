@@ -39,7 +39,15 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 		User nU = new User();
 		nU.ResetPasswordEmail(Utilities.stmt, email);
 		System.out.println("Forgot Password");
+		response.sendRedirect("resetPassword.html");  ////////THIS <======
+		}
+	//Check if register is clicked
+	
+	if (request.getParameter("register") != null) {
+		System.out.println("Register");
+		response.sendRedirect("register.html");  ////////THIS <======
 		}	
+	
 	
 	}
 }	
