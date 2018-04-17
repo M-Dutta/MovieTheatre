@@ -373,6 +373,17 @@ verifID int primary key auto_increment,
     ON UPDATE CASCADE
 );
 
+
+DROP TABLE IF EXISTS `Movie_Theater`.`verify` ;
+CREATE TABLE IF NOT EXISTS verify (
+email varchar(255) NOT NULL,
+verifyID int primary key auto_increment,
+ FOREIGN KEY (email)
+    REFERENCES Movie_Theater.user(email)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
