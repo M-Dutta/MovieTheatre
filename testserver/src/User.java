@@ -84,6 +84,7 @@ public class User extends Utilities {
 		User u = new User();
 		u.getUser( s,  email);
 		if (u.Password.equals(Utilities.hasher(password))) {
+			u.changeInfo(Utilities.stmt, "status","2222", 1); //Status 2 = logged In // 1 = verified
 			System.out.println("Logged In");
 		}
 		else {
@@ -92,7 +93,9 @@ public class User extends Utilities {
 		
 	}
 	
-	public void logout() {
+	public void logout(Statement s) {
+		this.changeInfo(s, "status", "1", 1);
+		System.out.println("Set User Status " + this.email  +  " " +this.status+" "  );
 		
 	}
 	//user.changeInfo(s, field,info, n)
@@ -105,8 +108,9 @@ public class User extends Utilities {
 	}
 	else {
 		s.executeUpdate("Update user "+ 
-			"SET "+field+"="+l+info+l + 
+			"SET "+field+"="+l+Integer.parseInt(info)+l + 
 			"WHERE email="  +l+email+l) ;
+		System.out.println("Print Info "+ info);
 	}
 	}
 	catch (SQLException e) {
