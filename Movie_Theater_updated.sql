@@ -366,7 +366,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `Movie_Theater`.`resets` ;
 CREATE TABLE IF NOT EXISTS resets (
 email varchar(255) NOT NULL,
-verifID int primary key,
+verifID int primary key auto_increment,
  FOREIGN KEY (email)
     REFERENCES Movie_Theater.user(email)
     ON DELETE CASCADE
