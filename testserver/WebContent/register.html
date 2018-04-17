@@ -10,6 +10,7 @@
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
         <style>
 
         body
@@ -18,7 +19,7 @@
          color: white;
         }
 
-        .register
+        .signIn
         {
           text-align: center;
           padding-top: 30px;
@@ -37,7 +38,7 @@
           margin-top: 30px;
         }
 
-        button
+        .b
         {
           background-color: black;
           font-size: 20px;
@@ -48,7 +49,7 @@
           margin-bottom: 10px;
         }
 
-        button:hover
+        .b:hover
         {
           background-color: white;
           color: black;
@@ -62,8 +63,6 @@
           font-size: 16px;
           border: 1px solid white;
           border-radius: 10px;
-          color: black;
-          padding-left: 2px;
         }
 
         a
@@ -72,13 +71,8 @@
           color: white;
         }
 
-        .p
-        {
-            text-align: center;
-            margin: auto;
-        }
-
         </style>
+
     </head>
     <body>
         <div class="nav-placeholder">
@@ -87,7 +81,7 @@
                   <a href="index.html">Theater</a>
               </div>
               <li>
-                  <form>
+                  <form action="/action_page.php">
                       <input type="text" placeholder="Search.." name="search">
                   </form>
               </li>
@@ -105,19 +99,18 @@
           </ul>
           <br>
           <br>
-
         </div>
 
-        <div class="register">
-            <form class="form" action = "register" method="POST">
-                <h1>Register</h1>
-                <input class ="i" type="text" placeholder="First Name" name="firstName"><br>
-                <input class ="i" type="text" placeholder="Last Name" name="lastName"><br>
-                <input class ="i" type="text" placeholder="Email" name="email"><br>
-                <input class ="i" type="text" placeholder="Password" name="Password"><br>
-                <input class ="i" type="text" placeholder="Confirm Password" name="passConfirm"><br><br>
-                <p class = "p">Receive Promo Codes <input type="checkbox"></p><br>
-                <button type="submit">Register</button><br>
+        <div class="signIn">
+            <form class="form" action="signIn" method="GET">
+                <h1>Sign-In</h1>
+                <input class= "i" type="text" placeholder="Email" name="email"><br>
+                <input class ="i" type="text" placeholder="Password" name="password"><br><br>
+                <button class= "b" type="submit" name = "sign">Sign-In</button><br>
+                <button class ="b" type="submit" name = "register">Register</button><br>
+                <button class= "b" type="submit" name = "forgot">Forgot-Password</button><br>
+            
+                <a href = "#"> Remember Me </a>
             </form>
 
         </div>
