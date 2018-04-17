@@ -23,18 +23,23 @@ public class signInServlet extends HttpServlet {
 @Override
 public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
-	
-	ServletConfig config = this.getServletConfig();
-	ServletContext context = config.getServletContext();
-	
+	//Check if Signin is clicked
+	if (request.getParameter("sign") != null) {
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
 	
 	User nU = new User();
 	nU.login(Utilities.stmt, email, password);
+	System.out.println("Sign-In");
+
+	response.sendRedirect("index.html"); ////////THIS <======
+	}	
+	if (request.getParameter("forgot") != null) {
+		String email = request.getParameter("email");
+		User nU = new User();
+		nU.ResetPasswordEmail(Utilities.stmt, email);
+		System.out.println("Forgot Password");
+		}	
 	
-	RequestDispatcher dispatcher = context.getRequestDispatcher("/index.html");
-	dispatcher.forward(request, response);
-		
 	}
 }	
