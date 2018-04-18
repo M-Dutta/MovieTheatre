@@ -12,6 +12,7 @@
         <title>Theater</title>
 
         <style>
+
         a
         {
           font-size: 12px;
@@ -41,13 +42,14 @@
       </div>
 
         <div class="outside">
-            <form class="box" action="resetPass" method="POST">
-                <h1>Reset Password</h1>
-                <input class ="i" type="text" placeholder="Email" name="email">
-                <input class ="i" type="text" placeholder="Verification" name="verification">
-                <input class= "i" type="text" placeholder="New Password" name="newPass"><br>
-                <input class ="i" type="text" placeholder="Confirm Password" name="confirmPass"><br><br>
-                <button ="submit">Reset</button><br>
+            <form class="box" action="ManagerSignIn" method="GET">
+                <h1>Manager Sign-In</h1>
+                <input class= "i" type="text" placeholder="Manager ID" name="ManagerID"><br>
+                <input class ="i" type="text" placeholder="Password" name="password"><br><br>
+                <button type="submit" name = "signin">Sign-In</button><br>
+
+
+                <a href = "#"> Remember Me </a>
             </form>
 
         </div>

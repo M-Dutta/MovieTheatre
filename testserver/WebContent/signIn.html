@@ -5,66 +5,13 @@
         <meta charset="utf-8">
 
         <!-- style sheets -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
 
         <style>
-
-        body
-        {
-         background-color: black;
-         color: white;
-        }
-
-        .signIn
-        {
-          text-align: center;
-          padding-top: 30px;
-        }
-
-        .form
-        {
-          border-style: solid;
-          border-width: 3px;
-          border-color: white;
-          border-radius: 10px;
-          padding-top: 10px;
-          padding-bottom: 20px;
-          width: 40%;
-          margin: auto;
-          margin-top: 30px;
-        }
-
-        .b
-        {
-          background-color: black;
-          font-size: 20px;
-          border: 1px solid white;
-          border-radius: 10px;
-          width: 30%;
-          color: white;
-          margin-bottom: 10px;
-        }
-
-        .b:hover
-        {
-          background-color: white;
-          color: black;
-        }
-
-        .i
-        {
-          width: 60%;
-          margin-bottom: 10px;
-          text-align: center;
-          font-size: 16px;
-          border: 1px solid white;
-          border-radius: 10px;
-        }
-
         a
         {
           font-size: 12px;
@@ -75,42 +22,34 @@
 
     </head>
     <body>
-        <div class="nav-placeholder">
-          <ul class="nav">
-              <div class="logo">
-                  <a href="index.html">Theater</a>
-              </div>
-              <li>
-                  <form action="/action_page.php">
-                      <input type="text" placeholder="Search.." name="search">
-                  </form>
-              </li>
-              <li><a href="#Booking">Book Tickets</a></li>
-              <li>
-                  <a href="#Cart">
-                      <img class="navPic" alt="profile" src="img/cart.png">
-                  </a>
-              </li>
-              <li>
-                  <a href="#profile">
-                      <img class="navPic" alt="profile" src="img/user.png">
-                  </a>
-              </li>
-          </ul>
-          <br>
-          <br>
-        </div>
 
-        <div class="signIn">
-            <form class="form" action="signIn" method="GET">
+      <div class="navbar">
+        <a style = "float:left" href = "homepage.html"> Home </a>
+        <div class="dropdown">
+          <button class="dropbtn"> Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="signIn.html">Sign-In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <a href = "cart.html"> Cart </a>
+        <a href = "bookTickets.html"> Book Tickets </a>
+        <form>
+          <input type="text" placeholder="Search" name="search">
+        </form>
+      </div>
+
+        <div class="outside">
+            <form class="box" action="signIn" method="GET">
                 <h1>Sign-In</h1>
-                <input class= "i" type="text" placeholder="Email" name="email"><br>
-                <input class ="i" type="text" placeholder="Password" name="password"><br><br>
-                <button class= "b" type="submit" name = "sign">Sign-In</button><br>
-                <button class ="b" type="submit" name = "register">Register</button><br>
-                <button class= "b" type="submit" name = "forgot">Forgot-Password</button><br>
-            
-                <a href = "#"> Remember Me </a>
+                <input class= "i" type="text" placeholder="Email" name="search"><br>
+                <input class ="i" type="text" placeholder="Password" name="search"><br><br>
+                <button type = "submit" name = "sign"> Sign-In</button><br>
+                <button type = "submit" name = "register"> Register</button><br>
+                <button type = "submit" name = "forgot"> Forgot Password </button>
+                <a href = "#"> Rembember Me </a>
             </form>
 
         </div>

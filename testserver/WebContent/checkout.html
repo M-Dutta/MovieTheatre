@@ -5,99 +5,109 @@
     <meta charset="utf-8">
 
     <!-- style sheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- tab details -->
     <link rel="icon" type="image/png" href="img/cinema.png">
     <title>Theater</title>
 
     <style>
-      body
+
+      .form
       {
-       background-color: black;
-       color: white;
+        text-align: left;
       }
 
-      div
+      .i
       {
-        margin: auto;
+        width: 60%;
+        margin-bottom: 10px;
         text-align: center;
-        width: 75%;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
+        font-size: 16px;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: black;
+        padding-left: 2px;
+        display: inline-block;
+        float: left;
+      }
+
+      label
+      {
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 150px;
+        text-align: right;
+        padding-right: 7px;
+
       }
 
       table
       {
         margin: auto;
+        width: 100%;
       }
 
     </style>
 </head>
 
 <body>
-    <ul class="nav">
-        <div class="logo">
-            <a href="index.html">Theater</a>
-        </div>
+  <div class="navbar">
+    <a style = "float:left" href = "homepage.html"> Home </a>
+    <div class="dropdown">
+      <button class="dropbtn"> Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="signIn.html">Sign-In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <a href = "cart.html"> Cart </a>
+    <a href = "bookTickets.html"> Book Tickets </a>
+    <form>
+      <input type="text" placeholder="Search" name="search">
+    </form>
+  </div>
 
-        <li><a href="#Booking">Book Tickets</a></li>
-        <li>
-            <a href="#Cart">
-                <img class="navPic" alt="profile" src="img/cart.png">
-            </a>
-        </li>
-        <li>
-            <a href="#profile">
-                <img class="navPic" alt="profile" src="img/user.png">
-            </a>
-        </li>
-    </ul>
+    <div class "outside">
+      <div class= "otherBox">
+    	   <h1> Checkout </h1>
+        <table>
+          <tr>
+            <td style = "width: 400px">
+              <form class = "form">
+                <label> Card Number:</label><input class ="i" type = "text" id = "cardNumber"> <br>
+                <label> Expiration Date:</label><input class ="i" type = "text" id = "expirationDate"> <br>
+                <label> CVV: </label><input class ="i" type = "text" id = "cvv"> <br>
+                <label> Address 1: </label><input class ="i" type = "text" id = "address1"> <br>
+                <label> Address 2: </label><input class ="i" type = "text" id = "address2"> <br>
+                <label> Zip Code: </label><input class ="i" type = "text" id = "zipCode"> <br>
+                <label> State: </label><input class ="i" type = "text" id = "state"> <br>
+                <label> Country: </label><input class ="i" type = "text" id ="country"> <br>
+                <label> Contact Number: </label><input class ="i" type = "text" id = "contactNumber"> <br>
+                <label> Promo Code: </label><input class ="i" type = "text" id = "promoCode">
+              </form>
+            </td>
 
-    <br>
-    <br>
+            <td style = "width: 200px">
+              <p class = "p"> Black Panther </p> <br>
+              <p class = "p"> 3/6/2018 7:45 PM </p> <br>
+              <p class = "p"> 2 Adult Tickets </p> <br>
 
-    <div>
-    	<h1> Checkout </h4>
-      <br> <br>
+            </td>
+          </tr>
 
-      <table>
-        <tr>
-          <td>
-            <form>
-              Card Number:      <input type = "text" id = "cardNumber"> <br>
-              Expiration Date:  <input type = "text" id = "expirationDate"> <br>
-              CVV:              <input type = "text" id = "cvv"> <br>
-              Address 1:        <input type = "text" id = "address1"> <br>
-              Address 2:        <input type = "text" id = "address2"> <br>
-              Zip Code:         <input type = "text" id = "zipCode"> <br>
-              State:            <input type = "text" id = "state"> <br>
-              Country:          <input type = "text" id ="country"> <br>
-              Contact Number:   <input type = "text" id = "contactNumber"> <br>
-            </form>
-          </td>
+        </table>
 
+        <p> Total: $23.92 </p>
+        <button type = "button"> Place Order </button>
+        <button type = "button"> Cancel Order </button>
 
-          <td>
-            <input type = "text" id = "promoCode" value = "Enter Promo Code"><br>
-            <p> Black Panther </p>
-            <p> 3/6/2018 7:45 PM </p>
-            <p> 2 Adult Tickets </p>
-          </td>
-        </tr>
-
-      </table>
-
-      <p> Total: $23.92 </p>
-      <input type = "button" id = "placeOrder" value = "Place Order">
-      <input type = "button" id = "cancel" value = "Cancel Order">
-
+      </div>
     </div>
 
-    <!--scripts-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/script.js"></script>
+  
 </body>
 </html>

@@ -5,87 +5,62 @@
     <meta charset="utf-8">
 
     <!-- style sheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- tab details -->
     <link rel="icon" type="image/png" href="img/cinema.png">
     <title>Theater</title>
 
-    <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
-
-      div
-      {
-        margin: auto;
-        text-align: center;
-        width: 75%;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
-
-      form
-      {
-
-      }
-
-    </style>
 </head>
 
 <body>
-    <ul class="nav">
-        <div class="logo">
-            <a href="index.html">Theater</a>
+  <div class="navbar">
+    <a style = "float:left" href = "homepage.html"> Home </a>
+    <div class="dropdown">
+      <button class="dropbtn"> Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="signIn.html">Sign-In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <a href = "cart.html"> Cart </a>
+    <a href = "bookTickets.html"> Book Tickets </a>
+    <form>
+      <input type="text" placeholder="Search" name="search">
+    </form>
+  </div>
+
+
+    <div class = "outside">
+      <div class = "box">
+    	   <h1> User Profile </h1>
+
+            <form>
+              <h2> Personal </h2>
+              <input class ="i" type = "text" id = "newName" placeholder = "Jake Applebee" > <br>
+              <input class ="i" type = "text" id = "newEmail" placeholder = "japplebee@gmail.com"> <br>
+              <input class ="i" type = "password" id = "newPassword" placeholder = "il0v3apples!"> <br>
+              <h2> Payment Information </h2>
+              <input class ="i" type = "text" id = "newCardNumber" placeholder = "4001 0345 6759 9675"> <br>
+              <input class ="i" type = "text" id = "newExpDate" placeholder = "02/2020"> <br>
+              <input class ="i" type = "text" id = "newCVV" placeholder = "976"> <br>
+              <h2> Billing Information </h2>
+              <input class ="i" type = "text" id ="newBilling" placeholder = "145 Rosewater Ct"> <br>
+              <input class ="i" type = "text" id = "newCity" placeholder = "Fayetteville"> <br>
+              <input class ="i" type = "text" id = "newState" placeholder = "NC"> <br>
+              <input class ="i" type = "text" id = "newZip" placeholder = "37583"> <br><br>
+
+              <button type = "submit"> Save Information </button> <br>
+
+            </form>
         </div>
-
-        <li><a href="#Booking">Book Tickets</a></li>
-        <li>
-            <a href="#Cart">
-                <img class="navPic" alt="profile" src="img/cart.png">
-            </a>
-        </li>
-        <li>
-            <a href="#profile">
-                <img class="navPic" alt="profile" src="img/user.png">
-            </a>
-        </li>
-    </ul>
-
-    <br>
-    <br>
-
-    <div>
-    	<h1> User Profile </h4>
-      <br> <br>
-
-      <form>
-        Name: <input type = "text" id = "newName" value = "Jake Applebee" > <br>
-        Email: <input type = "text" id = "newEmail" value = "japplebee@gmail.com"> <br>
-        Password: <input type = "password" id = "newPassword" value = "il0v3apples!"> <br>
-        Payment Information <br>
-        Card Number: <input type = "text" id = "newCardNumber" value = "4001 0345 6759 9675"> <br>
-        Expiration Date: <input type = "text" id = "newExpDate" value = "02/2020"> <br>
-        CVV: <input type = "text" id = "newCVV" value = "976"> <br>
-        Billing Information <br>
-        Address: <input type = "text" id ="newBilling" value = "145 Rosewater Ct"> <br>
-        City: <input type = "text" id = "newCity" value = "Fayetteville"> <br>
-        State: <input type = "text" id = "newState" value = "NC"> <br>
-        Zip Code: <input type = "text" id = "newZip" value = "37583"> <br>
-      </form>
-
-      <br>
-      <br>
-
-        <input type = "button" id = "saveInfo" value = "Save Information"> <br>
     </div>
 
-    <!--scripts-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/script.js"></script>
+    <br>
+    <br>
+    <br>
+
 </body>
 </html>

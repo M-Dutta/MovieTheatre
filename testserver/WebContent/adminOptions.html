@@ -5,49 +5,45 @@
         <meta charset="utf-8">
 
         <!-- style sheets -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
-    </head>
-    <body>
-        <div class="nav-placeholder">
-          <ul class="nav">
-              <div class="logo">
-                  <a href="index.html">Theater</a>
-              </div>
-              <li>
-                  <form action="/action_page.php">
-                      <input type="text" placeholder="Search.." name="search">
-                  </form>
-              </li>
-              <li><a href="#Booking">Book Tickets</a></li>
-              <li>
-                  <a href="#Cart">
-                      <img class="navPic" alt="profile" src="img/cart.png">
-                  </a>
-              </li>
-              <li>
-                  <a href="#profile">
-                      <img class="navPic" alt="profile" src="img/user.png">
-                  </a>
-              </li>
-          </ul>
-          <br>
-          <br>
 
+    </head>
+
+    <body>
+
+      <div class="navbar">
+        <a style = "float:left" href = "homepage.html"> Home </a>
+        <div class="dropdown">
+          <button class="dropbtn"> Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="signIn.html">Sign-In</a>
+            <a href="register.html">Register</a>
+          </div>
         </div>
-        <h1>Admin Options</h1>
-        <div class="adminOptions">
-            <form class="" action="index.html" method="post">
-                <button type="button" style="width:100px">Movies</button><br>
-                <button type="button" style="width:100px">Users</button><br>
-                <button type="button" style="width:100px">Employees</button><br>
-                <button type="button" style="width:100px">Employees</button><br>
-                <button type="button" style="width:100px">Promo Codes</button><br>
-                <button type="button" style="width:100px">Reports</button><br>
+        <a href = "cart.html"> Cart </a>
+        <a href = "bookTickets.html"> Book Tickets </a>
+        <form>
+          <input type="text" placeholder="Search" name="search">
+        </form>
+      </div>
+
+        <div class = "outside">
+            <form class="box" action="index.html" method="post">
+                <h1>Admin Options</h1>
+                <button type="button"> Movies</button><br>
+                <button type="button"> Users</button><br>
+                <button type="button"> Employees</button><br>
+                <button type="button"> Employees</button><br>
+                <button type="button"> Promo Codes</button><br>
+                <button type="button"> Reports </button><br>
             </form>
         </div>
+
     </body>
 </html>

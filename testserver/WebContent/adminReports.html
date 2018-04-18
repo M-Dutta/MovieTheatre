@@ -5,69 +5,69 @@
         <meta charset="utf-8">
 
         <!-- style sheets -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
+
     </head>
+
+
     <body>
-        <div class="nav-placeholder">
-          <ul class="nav">
-              <div class="logo">
-                  <a href="index.html">Theater</a>
-              </div>
-              <li>
-                  <form action="/action_page.php">
-                      <input type="text" placeholder="Search.." name="search">
+      <div class="navbar">
+        <a style = "float:left" href = "homepage.html"> Home </a>
+        <div class="dropdown">
+          <button class="dropbtn"> Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="signIn.html">Sign-In</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+        <a href = "cart.html"> Cart </a>
+        <a href = "bookTickets.html"> Book Tickets </a>
+        <form>
+          <input type="text" placeholder="Search" name="search">
+        </form>
+      </div>
+
+
+        <div class = "outside">
+          <div class = "table">
+            <h1>Reports</h1>
+            <table>
+              <tr>
+                <th>Ticket #</th>
+                <th>Movie</th>
+                <th>Date</th>
+                <th>Time</th>
+
+              </tr>
+
+              <tr>
+                <td>1234</td>
+                <td>Black Panther</td>
+                <td>03/04/0218</td>
+                <td>18:00</td>
+                <td>
+                  <form class="" action="index.html" method="post">
+                    <button type="submit"> Refund </button><br>
                   </form>
-              </li>
-              <li><a href="#Booking">Book Tickets</a></li>
-              <li>
-                  <a href="#Cart">
-                      <img class="navPic" alt="profile" src="img/cart.png">
-                  </a>
-              </li>
-              <li>
-                  <a href="#profile">
-                      <img class="navPic" alt="profile" src="img/user.png">
-                  </a>
-              </li>
-          </ul>
-          <br>
-          <br>
-          <br>
+                </td>
 
-        </div>
-        <button type="button">Back To Options</button><br>
-        <h1>Reports</h1>
-        <div class="rep">
-            <form class="" action="index.html" method="post">
-                <input type="text" placeholder="Search" name="search"><br><br>
-            </form>
-            <div class="reports">
-                <table id="reports">
-                    <tr>
-                        <th>Ticket #</th>
-                        <th>Movie</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>1234</td>
-                        <td>Black Panther</td>
-                        <td>03/04/0218</td>
-                        <td>18:00</td>
-                        <td>
-                            <form class="" action="index.html" method="post">
-                                <button type="submit">Refund</button><br>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+              </tr>
 
-        </div>
+            </table>
+
+
+
+          </div>
+          <button class = "return" type = "button"> Back to Options </button><br>
+      </div>
+
+
     </body>
 </html>

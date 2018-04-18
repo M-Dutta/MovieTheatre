@@ -5,119 +5,76 @@
     <meta charset="utf-8">
 
     <!-- style sheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- tab details -->
     <link rel="icon" type="image/png" href="img/cinema.png">
     <title>Theater</title>
 
-    <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
-
-      div
-      {
-        text-align: center;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
-
-      table
-      {
-        margin: auto;
-      }
-
-      th
-      {
-        width: 200px;
-      }
-
-    </style>
-
 </head>
 
 <body>
-    <ul class="nav">
-        <div class="logo">
-            <a href="index.html">Theater</a>
-        </div>
+  <div class="navbar">
+    <a style = "float:left" href = "homepage.html"> Home </a>
+    <div class="dropdown">
+      <button class="dropbtn"> Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="signIn.html">Sign-In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <a href = "cart.html"> Cart </a>
+    <a href = "bookTickets.html"> Book Tickets </a>
+    <form>
+      <input type="text" placeholder="Search" name="search">
+    </form>
+  </div>
 
-        <li><a href="#Booking">Book Tickets</a></li>
-        <li>
-            <a href="#Cart">
-                <img class="navPic" alt="profile" src="img/cart.png">
-            </a>
-        </li>
-        <li>
-            <a href="#profile">
-                <img class="navPic" alt="profile" src="img/user.png">
-            </a>
-        </li>
-    </ul>
 
-    <br>
-    <br>
+    <div class = "outside">
+      <div class = "table">
+      	<h1> Cart </h4>
+        <table>
+          <tr>
+            <th> Date </th>
+            <th> Time </th>
+            <th> Movie Title </th>
+            <th> Seat Number </th>
+            <th> Ticket Type </th>
+            <th> Price </th>
+          </tr>
 
-    <div>
-    	<h1> Cart </h4>
-      <table>
-        <tr>
-          <th> Date </th>
-          <th> Time </th>
-          <th> Movie Title </th>
-          <th> Seat Number </th>
-          <th> Ticket Type </th>
-          <th> Price </th>
-          <th> <th>
-        </tr>
+          <tr>
+            <td> 3/6/2018 </td>
+            <td> 7:45 PM </td>
+            <td> Black Panther </td>
+            <td> 14 </td>
+            <td> Adult </td>
+            <td> $11.50 </td>
+            <td> <button type = "button"> Remove </button> </td>
+          </tr>
 
-        <tr>
-          <td> 3/6/2018 </td>
-          <td> 7:45 PM </td>
-          <td> Black Panther </td>
-          <td> 14 </td>
-          <td> Adult </td>
-          <td> $11.50 </td>
-          <td> <input type = "button" id = "row1" value = "Remove"> </td>
-        </tr>
+          <tr>
+            <td> 3/6/2018 </td>
+            <td> 7:45 PM </td>
+            <td> Black Panther </td>
+            <td> 15 </td>
+            <td> Adult </td>
+            <td> $11.50  </td>
+            <td> <button type = "button"> Remove </button> </td>
+          </tr>
 
-        <tr>
-          <td> 3/6/2018 </td>
-          <td> 7:45 PM </td>
-          <td> Black Panther </td>
-          <td> 15 </td>
-          <td> Adult </td>
-          <td> $11.50  </td>
-          <td> <input type = "button" id = "row2" value = "Remove"> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-      </table>
-
-      <br>
-      <br>
+        </table>
 
       <p> Total: $23.92 </p>
-      <input type = "button" id = "backToBrowse" value = "Back To Browse">
-      <input type = "button" id = "checkout" value = "Continue To Checkout">
+      <button class = "return" type = "button"> Back To Browse </button>
+      <button class = "return" type = "button"> Continue To Checkout </button>
 
     </div>
+  </div>
 
-    <!--scripts-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/script.js"></script>
+
 </body>
 </html>

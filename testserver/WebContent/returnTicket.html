@@ -5,66 +5,43 @@
     <meta charset="utf-8">
 
     <!-- style sheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- tab details -->
     <link rel="icon" type="image/png" href="img/cinema.png">
     <title>Theater</title>
 
-    <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
-
-      div
-      {
-        margin: auto;
-        text-align: center;
-        width: 75%;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
-
-    </style>
 </head>
 
 <body>
-    <ul class="nav">
-        <div class="logo">
-            <a href="index.html">Theater</a>
-        </div>
-
-        <li><a href="#Booking">Book Tickets</a></li>
-        <li>
-            <a href="#Cart">
-                <img class="navPic" alt="profile" src="img/cart.png">
-            </a>
-        </li>
-        <li>
-            <a href="#profile">
-                <img class="navPic" alt="profile" src="img/user.png">
-            </a>
-        </li>
-    </ul>
-
-    <br>
-    <br>
+  <div class="navbar">
+    <a style = "float:left" href = "homepage.html"> Home </a>
+    <div class="dropdown">
+      <button class="dropbtn"> Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="signIn.html">Sign-In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <a href = "cart.html"> Cart </a>
+    <a href = "bookTickets.html"> Book Tickets </a>
+    <form>
+      <input type="text" placeholder="Search" name="search">
+    </form>
+  </div>
 
 
-    <div>
-    	<h1> Return Ticket </h4>
-      <br> <br>
-      <input type = "text" id = "orderNumber" value = "Enter Order Number" > <br>
-      <input type = "button" id = "return" value = "Return"> <br>
 
+    <div class = "outside">
+      <div class = "box">
+    	   <h1> Return Ticket </h4>
+           <br> <br>
+           <input class = "i" type = "text" name = "orderNumber" value = "Enter Order Number" > <br>
+           <button type = "submit" name = "return"> Return </button>
+      </div>
     </div>
 
-    <!--scripts-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/script.js"></script>
 </body>
 </html>

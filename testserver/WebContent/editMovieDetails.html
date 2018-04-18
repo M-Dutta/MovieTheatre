@@ -5,57 +5,49 @@
         <meta charset="utf-8">
 
         <!-- style sheets -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- tab details -->
         <link rel="icon" type="image/png" href="img/cinema.png">
         <title>Theater</title>
+
     </head>
+
     <body>
-        <div class="nav-placeholder">
-          <ul class="nav">
-              <div class="logo">
-                  <a href="index.html">Theater</a>
-              </div>
-              <li>
-                  <form action="/action_page.php">
-                      <input type="text" placeholder="Search.." name="search">
-                  </form>
-              </li>
-              <li><a href="#Booking">Book Tickets</a></li>
-              <li>
-                  <a href="#Cart">
-                      <img class="navPic" alt="profile" src="img/cart.png">
-                  </a>
-              </li>
-              <li>
-                  <a href="#profile">
-                      <img class="navPic" alt="profile" src="img/user.png">
-                  </a>
-              </li>
-          </ul>
-          <br>
-          <br>
-          <br>
-
+      <div class="navbar">
+        <a style = "float:left" href = "homepage.html"> Home </a>
+        <div class="dropdown">
+          <button class="dropbtn"> Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="signIn.html">Sign-In</a>
+            <a href="register.html">Register</a>
+          </div>
         </div>
-        <button type="button">Back To Options</button><br>
-        <h1>Movies</h1>
-        <div>
-            <div class="editMovie">
-                <form class="" action="index.html" method="post">
-                    <input type="text" placeholder="Date">
-                    <input type="text" placeholder="Time">
-                    <input type="text" placeholder="Movie Title">
-                    <button type="button">Save</button>
+        <a href = "cart.html"> Cart </a>
+        <a href = "bookTickets.html"> Book Tickets </a>
+        <form>
+          <input type="text" placeholder="Search" name="search">
+        </form>
+      </div>
+
+
+            <div class = "outside">
+                <form class = "box">
+                    <h1> Edit Movie </h1>
+                    <input class = "i" type="text" placeholder="Date">
+                    <input class = "i" type="text" placeholder="Time">
+                    <input class = "i" type="text" placeholder="Movie Title"><br>
+                    <button type="button"> Save </button>
                 </form>
-            </div>
-            <br><br>
-            <form class="" action="index.html" method="post">
-                <button type="button">View</button><br>
-            </form>
-        </div>
 
-        </div>
+                <button class = "return" type="button">Back To Movies List </button><br>
+
+              </div>
+
+
+
+
     </body>
 </html>

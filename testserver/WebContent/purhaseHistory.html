@@ -5,64 +5,35 @@
     <meta charset="utf-8">
 
     <!-- style sheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- tab details -->
     <link rel="icon" type="image/png" href="img/cinema.png">
     <title>Theater</title>
 
-    <style>
-      body
-      {
-       background-color: black;
-       color: white;
-      }
-
-      div
-      {
-        margin: auto;
-        text-align: center;
-        border: 10px;
-        border-color: white;
-        border-radius: 5px;
-      }
-
-      table
-      {
-        margin: auto;
-      }
-
-      th
-      {
-          width: 200px;
-      }
-
-    </style>
 </head>
 
 <body>
-    <ul class="nav">
-        <div class="logo">
-            <a href="index.html">Theater</a>
-        </div>
+  <div class="navbar">
+    <a style = "float:left" href = "homepage.html"> Home </a>
+    <div class="dropdown">
+      <button class="dropbtn"> Profile
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="signIn.html">Sign-In</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <a href = "cart.html"> Cart </a>
+    <a href = "bookTickets.html"> Book Tickets </a>
+    <form>
+      <input type="text" placeholder="Search" name="search">
+    </form>
+  </div>
 
-        <li><a href="#Booking">Book Tickets</a></li>
-        <li>
-            <a href="#Cart">
-                <img class="navPic" alt="profile" src="img/cart.png">
-            </a>
-        </li>
-        <li>
-            <a href="#profile">
-                <img class="navPic" alt="profile" src="img/user.png">
-            </a>
-        </li>
-    </ul>
-
-    <br>
-    <br>
-
-    <div>
+  <div class = "outside">
+    <div class = "table">
     	<h1> Purchase History </h4>
       <table>
         <tr>
@@ -105,14 +76,13 @@
       <br>
       <br>
 
-      <input type = "button" id = "backToBrowse" value = "Back To User Profile">
-      <input type = "button" id = "checkout" value = "Back to Browse">
 
     </div>
 
-    <!--scripts-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/script.js"></script>
+          <button type = "submit"> Back To User Profile </button><br>
+          <button type = "button"> Back to Browse </button>
+  </div>
+
+  
 </body>
 </html>
