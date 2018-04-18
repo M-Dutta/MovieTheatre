@@ -22,7 +22,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminLoginServlet</servlet-name>
-    <url-pattern> /AdminSignIn </url-pattern>
+    <url-pattern> /adminLogin </url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ManagerLoginServlet</servlet-name>
@@ -30,7 +30,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ManagerLoginServlet</servlet-name>
-    <url-pattern> /ManagerSignIn </url-pattern>
+    <url-pattern> /managerLogin </url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ResetServlet</servlet-name>
@@ -48,8 +48,7 @@
     <servlet-name>VerifyEmailServlet</servlet-name>
     <url-pattern> /verifyEmail </url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>AccountConfirmationServlet</servlet-name>
     <servlet-class> AccountConfirmationServlet</servlet-class>
   </servlet>
@@ -57,8 +56,6 @@
     <servlet-name>AccountConfirmationServlet</servlet-name>
     <url-pattern> /accountConfirmation</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>UserProfileServlet</servlet-name>
     <servlet-class> userProfileServlet</servlet-class>
@@ -67,6 +64,18 @@
     <servlet-name>UserProfileServlet</servlet-name>
     <url-pattern> /userProfile </url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern> /purchaseHistory </url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern> /editUserProfile </url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern> /editEmailPreferences </url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class> logoutServlet</servlet-class>
@@ -74,5 +83,62 @@
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern> /logout </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HomepageServlet</servlet-name>
+    <servlet-class> homepageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomepageServlet</servlet-name>
+    <url-pattern> /homepage </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewDetailsServlet</servlet-name>
+    <servlet-class> viewDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailsServlet</servlet-name>
+    <url-pattern> /viewDetails </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookTicketsServlet</servlet-name>
+    <servlet-class> bookTicketsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookTicketsServlet</servlet-name>
+    <url-pattern> /bookTickets </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChooseSeatsServlet</servlet-name>
+    <servlet-class> chooseSeatsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChooseSeatsServlet</servlet-name>
+    <url-pattern> /chooseSeats </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class> cartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern> /cart </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <servlet-class> checkoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <url-pattern> /checkout </url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>OrderConfirmationServlet</servlet-name>
+    <servlet-class> orderConfirmationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderConfirmationServlet</servlet-name>
+    <url-pattern> /orderConfirmation </url-pattern>
   </servlet-mapping>
 </web-app>
