@@ -5,18 +5,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema Movie_Theater
+-- Schema Movie_Theater
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `Movie_Theater` ;
+DROP SCHEMA IF EXISTS `Movie_Theater` ;
 
 -- -----------------------------------------------------
--- Schema Movie_Theater
+-- Schema Movie_Theater
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `Movie_Theater` DEFAULT CHARACTER SET utf8 ;
 USE `Movie_Theater` ;
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`Movie`
+-- Table `Movie_Theater`.`Movie`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`Movie` ;
 
@@ -31,14 +31,14 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`m_info`
+-- Table `Movie_Theater`.`m_info`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`m_info` ;
 
 CREATE TABLE IF NOT EXISTS `Movie_Theater`.`m_info` (
   `id` INT NOT NULL,
   `desc` LONGTEXT NULL,
-  `rating` INT(1)  NULL,
+  `rating` INT(1) ZEROFILL NULL,
   `age` INT NULL,
   `genre` VARCHAR(45) NULL,
   `cast` LONGTEXT NULL,
@@ -57,7 +57,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`user`
+-- Table `Movie_Theater`.`user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`user` ;
 
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`user` (
   `phone` VARCHAR(16) NULL,
   `password` VARCHAR(50) NOT NULL,
   `birthdate` DATE NOT NULL,
-  `email_pref` INT  NOT NULL,
-  `status` INT  NOT NULL,
+  `email_pref` INT ZEROFILL NOT NULL,
+  `status` INT ZEROFILL NOT NULL,
   `street` VARCHAR(255) NULL,
   `city` VARCHAR(255) NULL,
   `state` VARCHAR(255) NULL,
@@ -79,7 +79,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`payment_info`
+-- Table `Movie_Theater`.`payment_info`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`payment_info` ;
 
@@ -104,7 +104,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`employee`
+-- Table `Movie_Theater`.`employee`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`employee` ;
 
@@ -126,7 +126,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`promo_code`
+-- Table `Movie_Theater`.`promo_code`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`promo_code` ;
 
@@ -139,7 +139,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`movie_date`
+-- Table `Movie_Theater`.`movie_date`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`movie_date` ;
 
@@ -168,7 +168,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`ticket`
+-- Table `Movie_Theater`.`ticket`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`ticket` ;
 
@@ -200,7 +200,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`registered_tickets`
+-- Table `Movie_Theater`.`registered_tickets`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`registered_tickets` ;
 
@@ -223,7 +223,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`employee_account`
+-- Table `Movie_Theater`.`employee_account`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`employee_account` ;
 
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`employee_account` (
   `email` VARCHAR(255) NULL,
   `phone` VARCHAR(16) NULL,
   `password` VARCHAR(50) NULL,
-  `promo_pref` INT  NULL,
+  `promo_pref` INT ZEROFILL NULL,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   PRIMARY KEY (`emp_id`),
   CONSTRAINT `fk_employee_account_employee1`
@@ -249,7 +249,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`daily_hours_worked`
+-- Table `Movie_Theater`.`daily_hours_worked`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`daily_hours_worked` ;
 
@@ -273,7 +273,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`admin`
+-- Table `Movie_Theater`.`admin`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`admin` ;
 
@@ -282,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`admin` (
   `designation` VARCHAR(10) NOT NULL,
   `admin_email` VARCHAR(70) NOT NULL,
   `admin_password` VARCHAR(45) NOT NULL,
-  `admin_status` int NOT NULL,
+  `status` INT NULL,
   PRIMARY KEY (`admin_id`, `designation`),
   UNIQUE INDEX `admin_email_UNIQUE` (`admin_email` ASC),
   INDEX `fk_admin_employee2_idx` (`designation` ASC),
@@ -300,7 +300,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`manager`
+-- Table `Movie_Theater`.`manager`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`manager` ;
 
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`manager` (
   `designation` VARCHAR(10) NOT NULL,
   `manager_email` VARCHAR(70) NOT NULL,
   `manager_password` VARCHAR(45) NOT NULL,
-  `manager_status` int NOT NULL,
+  `status` INT NULL,
   PRIMARY KEY (`manager_id`, `designation`),
   UNIQUE INDEX `manager_email_UNIQUE` (`manager_email` ASC),
   INDEX `fk_manager_employee2_idx` (`designation` ASC),
@@ -327,7 +327,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`regular`
+-- Table `Movie_Theater`.`regular`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`regular` ;
 
@@ -350,7 +350,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Movie_Theater`.`discounts`
+-- Table `Movie_Theater`.`discounts`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`discounts` ;
 
@@ -365,26 +365,43 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`discounts` (
   UNIQUE INDEX `disc_id_UNIQUE` (`disc_id` ASC))
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `Movie_Theater`.`reset`
+-- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`resets` ;
-CREATE TABLE IF NOT EXISTS resets (
-email varchar(255) NOT NULL,
-verifID int primary key auto_increment,
- FOREIGN KEY (email)
-    REFERENCES Movie_Theater.user(email)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
+
+CREATE TABLE IF NOT EXISTS `Movie_Theater`.`resets` (
+  `email` VARCHAR(255) NOT NULL,
+  `resetID` INT NOT NULL AUTO_INCREMENT,
+  UNIQUE INDEX `key_UNIQUE` (`resetID` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  PRIMARY KEY (`email`),
+  CONSTRAINT `fk_reset_user1`
+    FOREIGN KEY (`email`)
+    REFERENCES `Movie_Theater`.`user` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `Movie_Theater`.`verify`
+-- -----------------------------------------------------
 DROP TABLE IF EXISTS `Movie_Theater`.`verify` ;
-CREATE TABLE IF NOT EXISTS verify (
-email varchar(255) NOT NULL,
-verifyID int primary key auto_increment,
- FOREIGN KEY (email)
-    REFERENCES Movie_Theater.user(email)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-);
+
+CREATE TABLE IF NOT EXISTS `Movie_Theater`.`verify` (
+  `email` VARCHAR(255) NOT NULL,
+  `verifyID` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`email`),
+  UNIQUE INDEX `verifyID_UNIQUE` (`verifyID` ASC),
+  CONSTRAINT `fk_verify_user1`
+    FOREIGN KEY (`email`)
+    REFERENCES `Movie_Theater`.`user` (`email`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
