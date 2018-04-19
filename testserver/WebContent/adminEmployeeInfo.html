@@ -48,9 +48,9 @@
                     <td>johndoe@email.com</td>
                     <td>12345678</td>
                     <td>
-                        <form>
-                            <button type="button">Edit</button><br>
-                            <button type="button">Remove</button><br>
+                        <form action = "adminEmployee" method = "GET">
+                            <button type="submit" name = "edit">Edit</button><br>
+                            <button type="submit" name = "remove">Remove</button><br>
                         </form>
                     </td>
                 </tr>
@@ -59,9 +59,10 @@
 
 
         </div>
-        <button class = "return" type = "button"> Add Employee </button><br>
-        <button class = "return" type="button"> Back To Options </button><br>
-
+        <form action = "adminEmployee" method = "GET">
+        	<button type = "submit" name = "add"> Add Employee </button><br>
+        	<button type="submit" name = "options"> Back To Options </button><br>
+		</form>
       </div>
 
     </body>

@@ -72,7 +72,7 @@
     <servlet-name>UserProfileServlet</servlet-name>
     <url-pattern> /editUserProfile </url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>UserProfileServlet</servlet-name>
     <url-pattern> /editEmailPreferences </url-pattern>
   </servlet-mapping>
@@ -132,8 +132,7 @@
     <servlet-name>CheckoutServlet</servlet-name>
     <url-pattern> /checkout </url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>OrderConfirmationServlet</servlet-name>
     <servlet-class> orderConfirmationServlet</servlet-class>
   </servlet>
@@ -141,4 +140,101 @@
     <servlet-name>OrderConfirmationServlet</servlet-name>
     <url-pattern> /orderConfirmation </url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminEmployeeServlet</servlet-name>
+    <servlet-class> AdminEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminEmployeeServlet</servlet-name>
+    <url-pattern> /adminEmployee </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminMovieServlet</servlet-name>
+    <servlet-class> AdminMovieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminMovieServlet</servlet-name>
+    <url-pattern> /adminMovie </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminOptionsServlet</servlet-name>
+    <servlet-class> AdminOptionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminOptionsServlet</servlet-name>
+    <url-pattern> /adminOptions </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminPromoServlet</servlet-name>
+    <servlet-class> AdminPromoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminPromoServlet</servlet-name>
+    <url-pattern> /adminPromo </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminReportServlet</servlet-name>
+    <servlet-class> AdminReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminReportServlet</servlet-name>
+    <url-pattern> /adminReport </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <servlet-class> AdminUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <url-pattern> /adminUser </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class> EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern> /editUser </url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern> /addUser </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditPromoServlet</servlet-name>
+    <servlet-class> EditPromoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPromoServlet</servlet-name>
+    <url-pattern> /editPromo </url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>EditPromoServlet</servlet-name>
+    <url-pattern> /addPromo </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditMovieServlet</servlet-name>
+    <servlet-class> EditMovieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMovieServlet</servlet-name>
+    <url-pattern> /editMovie </url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>EditMovieServlet</servlet-name>
+    <url-pattern> /addMovie </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <servlet-class> EditEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <url-pattern> /editEmployee </url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <url-pattern> /addEmployee </url-pattern>
+  </servlet-mapping>
+ 
 </web-app>

@@ -47,9 +47,9 @@
                       <td>18:00</td>
                       <td>Black Panther</td>
                       <td>
-                          <form>
-                              <button type="button"> Edit </button><br>
-                              <button type="button"> Remove </button><br>
+                          <form action = "adminMovie" method = "GET">
+                              <button type="submit" name = "edit"> Edit </button><br>
+                              <button type="submit" name = "remove"> Remove </button><br>
                             </form>
                       </td>
                     </tr>
@@ -57,8 +57,10 @@
                 </table>
 
             </div>
-            <button class = "return" type = "button"> Add Movie </button><br>
-            <button class = "return" type="button"> Back To Options </button><br>
+            <form action = "adminMovie" method = "GET">
+            	<button type = "submit" name = "add"> Add Movie </button><br>
+            	<button type="submit" name = "options"> Back To Options </button><br>
+            </form>
           </div>
 
 

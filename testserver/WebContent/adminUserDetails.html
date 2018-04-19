@@ -50,9 +50,9 @@
                 <td>person@email.com</td>
                 <td>12345678</td>
                 <td>
-                  <form class="" action="index.html" method="post">
-                    <button type="button">Edit</button><br>
-                    <button type="button">Remove</button><br>
+                  <form action= "adminUser" method="GET">
+                    <button type="submit" name = "edit">Edit</button><br>
+                    <button type="submit" name = "remove">Remove</button><br>
                     </form>
                   </td>
             </tr>
@@ -60,9 +60,10 @@
 
         
         </div>
-        <button class = "return" type = "button"> Add User </button><br>
-        <button class = "return" type = "button"> Back to Options </button><br>
-
+        <form action= "adminUser" method="GET">
+        	<button type = "submit" name = "add"> Add User </button><br>
+        	<button type = "submit" name = "options"> Back to Options </button><br>
+		</form>
       </div>
     </body>
 </html>
