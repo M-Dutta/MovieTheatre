@@ -35,7 +35,17 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	
 	if (request.getParameter("saveNew") != null)
 	{
-
+		String Code = request.getParameter("Code");
+		String Discount = request.getParameter("Discount");
+		String exp = request.getParameter("ExpirationDate");
+		try {
+			PromoCode p = new PromoCode(Code,Double.parseDouble(Discount), Utilities.DateConverter(exp));
+			p.addPromoCode(Utilities.stmt, p);
+		} catch (NumberFormatException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
 	}
 	
 }

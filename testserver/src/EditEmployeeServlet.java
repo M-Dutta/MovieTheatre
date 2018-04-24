@@ -24,8 +24,8 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	response.setContentType("text/html; charset=UTF-8");
 	
 	if (request.getParameter("save") != null)
-	{
-
+	{	
+		
 	}
 	
 	if (request.getParameter("back") != null)
@@ -35,7 +35,21 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 	
 	if (request.getParameter("saveNew") != null)
 	{
-
+		String FirstName = request.getParameter("FirstName");
+		String LastName = request.getParameter("LastName");
+		String SSN = request.getParameter("SSN");
+		String Street = request.getParameter("Street");
+		String City = request.getParameter("City");
+		String State = request.getParameter("State");
+		String zip = request.getParameter("zip");
+		String Status = request.getParameter("Status");
+		String Designation = request.getParameter("Designation");
+		Employee e = new Employee(0,Integer.parseInt(SSN),FirstName,LastName,Street,City,State,
+				Integer.parseInt(zip),Integer.parseInt(Status),Designation);
+		Admin a = new Admin(0,"","","",0);
+		a.addEmployee(Utilities.stmt,e);
+		
+		
 	}
 	
 	

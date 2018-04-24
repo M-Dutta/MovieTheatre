@@ -24,6 +24,7 @@ public class User extends Utilities {
 	public String city;
 	public String state;
 	public int zip;
+	public String id;
 	
 	String l= "'"; //Use these to make life easier while formatting
 	String L = "','";
@@ -67,6 +68,32 @@ public class User extends Utilities {
 		this.city=  r.getString(10);
 	        this.state = r.getString(11);
 	        this.zip=   r.getInt(12);
+	        this.id = r.getString(13);
+		}
+	
+		catch (SQLException e) {
+		System.out.println("Getuser "+ e);
+		}
+		
+	    }
+	
+	public void getUser(Statement s, int id){
+		try {
+			
+		ResultSet r = s.executeQuery("SELECT * from user WHERE id="+l+email+l);
+			r.next();
+	        this.email= r.getString(1);
+	        this.phone = r.getString(2);
+	        this.fName =  r.getString(3);
+	        this.lName=  r.getString(4);
+	        this.Password = r.getString(5);
+	        this.birthDate = r.getDate(6);
+		this.emailPref= r.getInt(7);
+	        this.status = r. getInt(8);
+	        this.street =  r.getString(9);
+		this.city=  r.getString(10);
+	        this.state = r.getString(11);
+	        this.zip=   r.getInt(12);
 		}
 	
 		catch (SQLException e) {
@@ -75,11 +102,14 @@ public class User extends Utilities {
 		
 		
 	    }
+	
+	
+	
 	//Create user then call user.register(s)
 	public void register(Statement s) {
 		try {
 		s.executeUpdate("Insert into user values("+l+email+L+fName+L+lName+L+phone+L+Password+L+birthDate+L+emailPref+
-				L+status+L+street+L+city+L+state+L+zip+l+")");
+				L+status+L+street+L+city+L+state+L+zip+L+id+l+")");
 		}
 		
 		catch (SQLException e) {
@@ -199,7 +229,6 @@ public class User extends Utilities {
 		 try {
 			ResultSet r = s.executeQuery("Select * from verify as v where v.email="+l+email+l);
 			r.next();
-			
 			key = r.getInt(2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -305,6 +334,64 @@ public class User extends Utilities {
 
 		      // Now set the actual message
 		      message.setText("This is your Verification number :"+ key);
+
+		      // Send message
+		      Transport.send(message);
+		      System.out.println("Sent message successfully....");
+		   } catch (MessagingException mex) {
+		      mex.printStackTrace();
+		   }
+		}
+	
+	public void RegistrationConfirmation(Statement s,String str)	{
+		 // Recipient's email ID needs to be mentioned.
+		   String to =  this.email;
+		   System.out.println("this is Sent to :"+ to);
+		   int key =0;
+		 try {
+			ResultSet r = s.executeQuery("Select * from verify as v where v.email="+l+email+l);
+			r.next();
+			
+			key = r.getInt(2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		   
+		   
+		   // Sender's email ID needs to be mentioned
+		   String from = "theater_3@outlook.com";
+
+		   // Assuming you are sending email from localhost
+		   String host = "localhost";
+
+		   // Get system properties
+		   Properties properties = System.getProperties();
+
+		   properties.setProperty("mail.user", "theater_3@outlook.com");
+		   properties.setProperty("mail.password", "securePassword");
+		   
+		   // Setup mail server
+		   properties.setProperty("mail.smtp.host", host);
+
+		   // Get the default Session object.
+		   Session session = Session.getDefaultInstance(properties);
+
+		   try {
+		      // Create a default MimeMessage object.
+		      MimeMessage message = new MimeMessage(session);
+
+		      // Set From: header field of the header.
+		      message.setFrom(new InternetAddress(from));
+
+		      // Set To: header field of the header.
+		      message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+		      // Set Subject: header field
+		      message.setSubject("Register Confirmation");
+
+		      // Now set the actual message
+		      message.setText("This is your Unique User ID: "+ str);
 
 		      // Send message
 		      Transport.send(message);

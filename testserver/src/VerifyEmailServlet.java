@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -33,9 +34,13 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     		r.next();
     		if (email.equals(r.getString(1) ) && verifID == r.getInt(2) ) {
     			u.getUser(Utilities.stmt, email);
+    			Admin a = new Admin(0,"","","",0);
     			u.changeInfo(Utilities.stmt, "status", "1", 1);
+    			u.changeInfo(Utilities.stmt, "id",u.fName+Integer.toString(verifID) , 0);
     			System.out.println("Confirmed");
-    			Utilities.stmt.executeUpdate("DELETE from verify where verifyID="+ verifID);
+    			Utilities.stmt.executeUpdate("DELETE from verify where email="+ email);
+    			u.RegistrationConfirmation(Utilities.stmt,u.fName+Integer.toString(verifID));
+    			
     			response.sendRedirect("accountConfirmation.html");
     		}
     		else {

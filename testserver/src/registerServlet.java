@@ -35,7 +35,11 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
   	  String Password = request.getParameter("Password");
   	  String passConfirm = request.getParameter("passConfirm");
   	  String[] checkbox = request.getParameterValues("checkbox");
-  
+  	  int pref = 0;
+  	  if (checkbox!=null) {
+  		  pref = 1;
+  	  }
+  	
     System.out.println("Name " +fName);
     System.out.println("Lname " +lName);
     System.out.println("email " +email);
@@ -49,7 +53,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
    
 	try {
-		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,0, 0, "Blank", "Blank","Blank",0);
+		User nU = new User( email, Password,  fName, lName, "phone",Utilities.DateConverter("1990-01-01") ,pref, 0, "Blank", "Blank","Blank",0);
 		nU.register(Utilities.stmt);
 		System.out.println("Email: "+nU.email);
 		nU.RegistrationEmail(Utilities.stmt);

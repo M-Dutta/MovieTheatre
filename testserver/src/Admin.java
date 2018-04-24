@@ -108,9 +108,10 @@ public class Admin extends Utilities{
 	
 	public void addEmployee(Statement s, Employee employee){
 		try {
-			s.executeUpdate("Insert into users values("+l+employee.id+L+employee.ssn+L+employee.fName+L+employee.lName+
-					L+employee.street+L+employee.city+L+employee.state+L+employee.zip+
-					L+employee.stat+L+employee.designation+l+")");
+			
+			s.executeUpdate("insert into employee(ssn,fname,lname,street,city,state,zip,stat,designation)"
+					+ "values ("+l+employee.ssn+L+employee.fName+L+employee.lName+L+employee.street+L+employee.city+L+employee.state
+					+L+employee.zip+L+employee.stat+L+employee.designation+l+")");
 			}
 			
 			catch (SQLException e) {
