@@ -74,7 +74,9 @@ CREATE TABLE IF NOT EXISTS `Movie_Theater`.`user` (
   `city` VARCHAR(255) NULL,
   `state` VARCHAR(255) NULL,
   `zip` VARCHAR(255) NULL,
-  PRIMARY KEY (`email`))
+  `id` VARCHAR(255) NULL,
+  PRIMARY KEY (email)
+  )
 ENGINE = InnoDB;
 
 
