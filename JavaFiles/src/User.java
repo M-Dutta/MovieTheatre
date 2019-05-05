@@ -40,7 +40,43 @@ public class User extends Utilities {
 	public User() {}
 	
 	
+	
+	public setFirstName(String firstName)
+	{
+		this.fName = firstName;
+	}
+	
+	public setLastName(String lastName)
+	{
+		this.lName = lastName;
+	}
+	
+	public setEmail(String email)
+	{
+		this.email = email;
+	}
+	
+	public setPassword (String password)
+	{
+		this.Password = password;
+	}
+	
+	public setPassConfirm (String passConfirm)
+	{
+		if (passConfirm == this.Password)
+		{
+			try {
+		s.executeUpdate("Insert into user values("+l+email+L+fName+L+lName+L+phone+L+Password+L+birthDate+L+emailPref+
+				L+status+L+street+L+city+L+state+L+zip+l+")");
+		}
 		
+		catch (SQLException e) {
+		System.out.println("register "+ e);
+		}
+		}
+	}
+	
+	
 	//Selecting user ---- Only use if user is registered
 	public void getUser(Statement s, String email){
 		try {
